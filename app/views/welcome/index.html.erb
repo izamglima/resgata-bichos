@@ -4,3 +4,11 @@
 </p>
 
 <%= render :partial => 'devise/menu/login' %>
+
+
+<% if user_signed_in? %>
+	<h2><%= current_user.email %></h2>
+<% end %>
+
+
+<%= link_to 'Edit User', edit_user_registration_path %>
