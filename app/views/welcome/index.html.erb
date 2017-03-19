@@ -1,15 +1,18 @@
 <%= render :partial => 'layouts/header' %>
-<h2>Resgata bichos</h2>
-<p>
-  The time is now: <%= Time.now %>
-</p>
 
-<%= render :partial => 'devise/menu/login' %>
+<main>
+	<div class="container">
+		<section>
+			
+			<p>
+			  The time is now: <%= Time.now %>
+			</p>
+
+			<%= link_to 'Edit User', edit_user_registration_path %> 
+		</section>
+	</div>
+</main>
 
 
-<% if user_signed_in? %>
-	<h2><%= current_user.email %></h2>
-<% end %>
 
 
-<%= link_to 'Edit User', edit_user_registration_path %> 
