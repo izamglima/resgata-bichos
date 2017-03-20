@@ -10,7 +10,7 @@
 		    <span class="icon-bar"></span>
 		  </button>
 		  <a class="navbar-brand" href="/">
-		  	<span>Resgata Bichos</span>
+		  	<!-- <%= image_tag('site/resgata-bichos-logo4.png' , class: "img-responsive") %> -->
 		  </a>
 		</div>
 		
@@ -21,15 +21,25 @@
 		    <li><a class=" " href="#" >Achei um animal</a></li>
 		    <li><a class=" " href="#">Perdi um animal</a></li>
 		    <% if !user_signed_in? %>
-		    	<li class="naoLogado"><%= link_to 'Entrar', new_user_session_path %></li>
+		    	<li class="naoLogado">
+		    		<%= link_to(new_user_session_path , :class => "button small-button ") do %>
+					  Entrar
+					  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					<% end %>
+		    	</li>
 		    <% end %>
 		    <% if user_signed_in? %>
 			    <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span><%= current_user.name %></span><span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		            <li><a href="#">Editar minha conta</a></li>
+		            <li><%= link_to('Editar minha conta', edit_user_registration_path) %> </li>
 		            <li role="separator" class="divider"></li>
-		            <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %> </li>
+		            <li>
+			            <%= link_to(destroy_user_session_path, :method => :delete) do %>
+						  Sair
+						  <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+						<% end %>
+		            </li>
 		          </ul>
 		        </li>
 		    <% end %>
