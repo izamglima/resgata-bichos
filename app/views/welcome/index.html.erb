@@ -1,13 +1,23 @@
 <%= render :partial => 'layouts/header' %>
 
 <main>
-	<div class="container">
-		<section>
-			<h2>Resgata bichos</h2>
-			<p>
-			  The time is now: <%= Time.now %>
-			</p>		
-		</section>
-	</div>
+	<section class="principal">
+		<div class="container">
+			<h1>Resgata bichos</h1>
+			<h2>Ajuda colaborativa para resgatar animais perdidos</h2>
+			<div class="row">
+				<div class="col col-md-6 col-sm-12">
+					<%= link_to(new_animal_path(:status => 'perdido')) do %>
+					 <h2>Perdi meu animal</h2>
+					<% end %>	
+				</div>
+				<div class="col col-md-6 col-sm-12">
+					<%= link_to(new_animal_path(:status => 'encontrado')) do %>
+					 <h2>Achei um animal</h2>
+					<% end %>	
+				</div>
+			</div>
+		</div>	
+	</section>
 </main>
 

@@ -26,9 +26,9 @@
     <%= f.text_field :color %>
   </div>
 
-  <div class="field">
+  <div class="field ">
     <%= f.label :status %>
-    <%= f.text_field :status %>
+    <%= f.text_field :status, :value => params[:status], :disabled => true %>
   </div>
 
   <div class="actions">
