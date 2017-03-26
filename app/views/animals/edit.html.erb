@@ -1,6 +1,14 @@
-<h1>Editing Animal</h1>
+<%= render :partial => 'layouts/header' %>
 
-<%= render 'form', animal: @animal %>
+<main>
+  <section class="edit-animal">
+    <div class="container">
+		<h1>Editing Animal</h1>
 
-<%= link_to 'Show', @animal %> |
-<%= link_to 'Back', animals_path %>
+		<%= render 'form', animal: @animal %>
+
+		<%= link_to 'Show', @animal %> |
+		<%= link_to 'Back', animals_path %>
+    </div>  
+  </section>
+</main>

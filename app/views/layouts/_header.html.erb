@@ -17,9 +17,9 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <ul class="nav navbar-nav navbar-right">
-		    <li><a class=" " href="#">Home</a></li>
-		    <li><a class=" " href="#" >Achei um animal</a></li>
-		    <li><a class=" " href="#">Perdi um animal</a></li>
+		    <li><a class=" " href="/">Home</a></li>
+		    <li><%= link_to(new_animal_path(:status => 'encontrado')) do %>Achei um animal<% end %></li>
+		    <li><%= link_to(new_animal_path(:status => 'perdido')) do %>Perdi um animal<% end %></li>
 		    <% if !user_signed_in? %>
 		    	<li class="naoLogado">
 		    		<%= link_to(new_user_session_path , :class => "button small-button ") do %>
