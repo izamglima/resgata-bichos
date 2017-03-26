@@ -4,7 +4,7 @@ class AnimalsController < ApplicationController
   # GET /animals
   # GET /animals.json
   def index
-    @animals = Animal.all
+    @animals = current_user.animals.all
   end
 
   # GET /animals/1
@@ -14,7 +14,8 @@ class AnimalsController < ApplicationController
 
   # GET /animals/new
   def new
-    @animal = Animal.new
+    
+    @animal = current_user.animals.new
   end
 
   # GET /animals/1/edit
@@ -24,7 +25,7 @@ class AnimalsController < ApplicationController
   # POST /animals
   # POST /animals.json
   def create
-    @animal = Animal.new(animal_params)
+    @animal = current_user.animals.new(animal_params)
 
     respond_to do |format|
       if @animal.save
