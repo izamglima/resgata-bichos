@@ -20,11 +20,15 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-#Devise for auth
+#Devise for auth: https://github.com/plataformatec/devise
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google'
 gem 'omniauth-facebook'
+
+# Refile for images: https://github.com/refile/refile
+gem "refile", require: "refile/rails"
+gem "refile-mini_magick"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
