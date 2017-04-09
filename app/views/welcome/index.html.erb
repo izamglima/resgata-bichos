@@ -3,21 +3,52 @@
 <main>
 	<section class="principal">
 		<div class="container">
-			<h1>Resgata bichos</h1>
-			<h2>Ajuda colaborativa para resgatar animais perdidos</h2>
-			<div class="row">
-				<div class="col col-md-6 col-sm-12">
-					<%= link_to(new_animal_path(:status => 'perdido')) do %>
-					 <h2>Perdi meu animal</h2>
-					<% end %>	
-				</div>
-				<div class="col col-md-6 col-sm-12">
-					<%= link_to(new_animal_path(:status => 'encontrado')) do %>
-					 <h2>Achei um animal</h2>
-					<% end %>	
+			<div class="principal-texto">
+				<div class="row">
+					<div class="col col-md-12">
+						<h1>Resgata bichos</h1>
+						<h2>Ajuda colaborativa para resgatar animais perdidos</h2>
+					</div>
+					<div class="col col-md-6 col-sm-12">
+						<%= link_to(new_animal_path(:status => 'perdido'), class: "btn-principal") do %>
+						 Perdi meu animal
+						<% end %>	
+					</div>
+					<div class="col col-md-6 col-sm-12">
+						<%= link_to(new_animal_path(:status => 'encontrado'), class: "btn-principal ") do %>
+						 Achei um animal
+						<% end %>	
+					</div>
 				</div>
 			</div>
 		</div>	
 	</section>
+	<section class="como-funciona">
+		<div class="container">
+			<div class="row">
+				<div class="col col-md-12">
+					<h2>Como funciona?</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-md-4">
+					<h4>Cadastre o animal</h4>
+					<i class="icon icon-bulldog" aria-hidden="true"></i>
+					<p>Informe os dados</p>
+				</div>
+				<div class="col col-md-4">
+					<h4>Insira fotos</h4>
+					<i class="icon icon-cat" aria-hidden="true"></i>
+					<p>Mais chances de identificação</p>
+				</div>
+				<div class="col col-md-4">
+					<h4>Selecione o local no mapa</h4>
+					<i class="icon icon-map" aria-hidden="true"></i>
+					<p>Envio de avisos por região</p>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- mapa -->
 </main>
 

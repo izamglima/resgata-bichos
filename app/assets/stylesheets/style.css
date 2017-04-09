@@ -1,16 +1,78 @@
-h1, h2, h3, h4,p {
+h1, h2, h3, h4 {
 	font-family: 'Montserrat', sans-serif;
 }
-.principal {
-	height: 75vh;
-	background: url(site/dog-624952.jpg);
-	background-size: cover;
-	background-position: 0 -121px;
-	text-align: center;
+a, p {
+	font-family: 'Open Sans', sans-serif;
 }
 main {
 	margin-top: 51px;
 }
 a:hover {
 	color: #666;
+}
+.btn-principal {
+	background-color: #B046B2;
+	color: #fff;
+	padding: 20px 25px;
+    border-radius: 7px;
+    border: 1px solid #823c84;
+    font-size: 16px;
+}
+.icon {
+	display: inline-block;	
+}
+.icon-bulldog {
+	background: url(site/icons/bulldog.png);
+	width: 128px;
+	height: 128px;
+}
+.icon-cat {
+	background: url(site/icons/cat.png);
+	width: 128px;
+	height: 128px;
+}
+.icon-family {
+	background: url(site/icons/family.png);
+	width: 128px;
+	height: 128px;
+}
+.icon-map {
+	background: url(site/icons/map.png);
+	width: 128px;
+	height: 128px;
+}
+.navbar-default {
+	background-color: #FFF5D3;
+    border-color: #e2d6ad;
+}
+.navbar-default .navbar-nav>li>a{
+	color: #6AB2A6;
+	font-size: 16px;
+}
+.navbar-default .navbar-brand {
+	color: #B046B2;
+}
+.principal {
+	height: 75vh;
+	background: url(site/dog-624952.jpg);
+	background-size: cover;
+	background-position: 0 -121px;
+	background-repeat: no-repeat;
+	text-align: center;
+}
+.principal-texto {
+	margin-top: 80px;
+}
+.principal-texto h2 {
+	padding-top: 10px;
+}
+.principal .btn-principal {
+	margin-top: 65px;
+    display: inline-block;
+}
+.como-funciona {
+	height: 40vh;	
+	background: url(site/black-thread-light.png);
+	background-repeat: repeat;
+	text-align: center; 
 }
