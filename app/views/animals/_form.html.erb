@@ -10,28 +10,38 @@
 	  </ul>
 	</div>
   <% end %>
-  <div class="field">
-	<%= f.label :name %>
-	<%= f.text_field :name, class: "form-control" %>
+  <div class="field" data-toggle="tooltip">
+		<%= f.label :name, "Nome" %>
+		<%= f.text_field :name, class: "form-control" %>
   </div>
 
-  <div class="field">
-	<%= f.label :race %>
-	<%= f.text_field :race, class: "form-control" %>
+  <div class="field" data-toggle="tooltip">
+		<%= f.label :type, "Tipo" %>
+		<%= select_tag(:type, options_for_select([['Cão', 'Cão'], ['Gato', 'Gato']], '1'), class: "form-control")%>
   </div>
 
-  <div class="field">
-	<%= f.label :color %>
-	<%= f.text_field :color, class: "form-control" %>
+  <div class="field" data-toggle="tooltip" id="dogs-list">
+		<%= f.label :race, "Raça" %>
+		<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Affenpinscher', 'Affenpinscher'], ['Afghan Hound', 'Afghan Hound'], ['Airedale Terrier', 'Airedale Terrier']], '0'), class: "form-control")%>
+  </div>
+
+  <div class="field hidden" data-toggle="tooltip" id="cats-list">
+		<%= f.label :race, "Raça" %>
+		<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Abissínio', 'Abissínio'], ['Bengal', 'Bengal'], ['Persa', 'Persa']], '0'), class: "form-control")%>
+  </div>
+
+  <div class="field" data-toggle="tooltip">
+		<%= f.label :color, "Cor" %>
+		<%= f.text_field :color, class: "form-control" %>
   </div>
 
   <div class="field ">
-	<%= f.label :status %>
-	<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
+		<%= f.label :status %>
+		<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
   </div>
 
   <div class="actions">
-	<%= f.submit "Próximo passo", class: "btn-principal" %>
+	<%= f.submit "Próximo passo", class: "btn-principal btn-validate" %>
   </div>
 
 <% end %>
