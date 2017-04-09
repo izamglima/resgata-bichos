@@ -17,6 +17,12 @@ a:hover {
     border-radius: 7px;
     border: 1px solid #823c84;
     font-size: 16px;
+    transition: .5s;
+}
+.principal .btn-principal:hover {
+	color: #fff;
+    text-decoration: none;
+    background-color: rgba(254, 185, 255, 0.85);
 }
 .icon {
 	display: inline-block;	
@@ -75,4 +81,20 @@ a:hover {
 	background: url(site/black-thread-light.png);
 	background-repeat: repeat;
 	text-align: center; 
+}
+.entrar {
+	height: 90vh;
+	background: url(site/black-thread-light.png);
+	background-repeat: repeat;
+	text-align: center; 	
+}
+.field {
+	text-align: left;
+}
+.remember {
+	margin: 15px 0;
+}
+.form-container {
+	width: 50%;
+    margin: 0 auto;
 }
