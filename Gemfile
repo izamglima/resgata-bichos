@@ -26,6 +26,10 @@ gem 'omniauth'
 gem 'omniauth-google'
 gem 'omniauth-facebook'
 
+# PaperClip easy attachment library https://github.com/thoughtbot/paperclip
+gem "paperclip", "~> 5.0.0"
+gem 'aws-sdk'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

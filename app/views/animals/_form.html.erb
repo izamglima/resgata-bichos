@@ -1,37 +1,37 @@
 <%= form_for(animal) do |f| %>
   <% if animal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
-
-      <ul>
-      <% animal.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+	<div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
+	  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	  <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+	  <ul>
+	  <% animal.errors.full_messages.each do |message| %>
+		<li><%= message %></li>
+	  <% end %>
+	  </ul>
+	</div>
   <% end %>
   <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+	<%= f.label :name %>
+	<%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :race %>
-    <%= f.text_field :race, class: "form-control" %>
+	<%= f.label :race %>
+	<%= f.text_field :race, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :color %>
-    <%= f.text_field :color, class: "form-control" %>
+	<%= f.label :color %>
+	<%= f.text_field :color, class: "form-control" %>
   </div>
 
   <div class="field ">
-    <%= f.label :status %>
-    <%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
+	<%= f.label :status %>
+	<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Próximo passo", class: "btn-principal" %>
+	<%= f.submit "Próximo passo", class: "btn-principal" %>
   </div>
 
 <% end %>
