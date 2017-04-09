@@ -10,28 +10,28 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :race %>
-    <%= f.text_field :race %>
+    <%= f.text_field :race, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :color %>
-    <%= f.text_field :color %>
+    <%= f.text_field :color, class: "form-control" %>
   </div>
 
   <div class="field ">
     <%= f.label :status %>
-    <%= f.text_field :status, :value => params[:status], :disabled => true %>
+    <%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Próximo passo", class: "btn-principal" %>
   </div>
+
 <% end %>

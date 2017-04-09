@@ -1,7 +1,7 @@
-h1, h2, h3, h4 {
+h1, h2, h3, h4,li {
 	font-family: 'Montserrat', sans-serif;
 }
-a, p {
+a, p, .progress {
 	font-family: 'Open Sans', sans-serif;
 }
 main {
@@ -90,6 +90,7 @@ a:hover {
 }
 .field {
 	text-align: left;
+	margin-bottom: 15px;
 }
 .remember {
 	margin: 15px 0;
@@ -97,4 +98,18 @@ a:hover {
 .form-container {
 	width: 50%;
     margin: 0 auto;
+    padding: 30px 35px;
+    border: 1px solid #777;
+    margin-top: 35px;
+    border-radius: 7px;
+}
+.progress-bar {
+	background-color: #6AB2A6;
+}
+.steps-cadastro ol {
+	height: 100px;
+    padding-top: 40px;
+}
+.steps-cadastro li {
+	list-style-position: inside;
 }
