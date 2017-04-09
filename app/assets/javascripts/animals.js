@@ -59,8 +59,7 @@ function changeSelects(){
 	}
 }
 
-$(document).ready(function() {
-	console.log($('#form-animal').length);
+$(document).on('turbolinks:load', function() {
     if($('#form-animal').length) {
     	console.log('sdasdas1');
     	$('#new_animal').submit(function(event){
