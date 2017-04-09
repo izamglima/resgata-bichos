@@ -4,17 +4,19 @@ class ImagesController < ApplicationController
   # GET /images
   # GET /images.json
   def index
-    @images = Image.all
+    @images = Image.where(animal_id: params[:animal_id])
   end
 
   # GET /images/1
   # GET /images/1.json
   def show
+    @animal = Animal.find(params[:animal_id])
   end
 
   # GET /images/new
   def new
-    @image = Image.new
+    @animal = Animal.find(params[:animal_id])
+    @image = Image.new(animal: @animal)
   end
 
   # GET /images/1/edit
@@ -24,11 +26,13 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
+    @animal = Animal.find(params[:animal_id])
     @image = Image.new(image_params)
+    @image.animal = @animal
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to @image, notice: 'Image was successfully created.' }
+        format.html { redirect_to [@animal, @image], notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }

@@ -25,6 +25,14 @@
 		  <%= @animal.status %>
 		</p>
 
+		<ul>
+		  <% @animal.images.each do |image| %>
+		  	<li>
+		  		<%= image.inspect %>
+		  	</li>
+		  <% end %>
+		</ul>
+
 		<%= link_to 'Edit', edit_animal_path(@animal) %> |
 		<%= link_to 'Back', animals_path %>
     </div>  

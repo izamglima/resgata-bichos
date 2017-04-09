@@ -3,6 +3,10 @@ h1, h2, h3, h4,p {
 }
 .principal {
 	height: 75vh;
+	background: url(site/dog-624952.jpg);
+	background-size: cover;
+	background-position: 0 -121px;
+	text-align: center;
 }
 main {
 	margin-top: 51px;
