@@ -10,38 +10,60 @@
 	  </ul>
 	</div>
   <% end %>
-  <div class="field" data-toggle="tooltip">
-		<%= f.label :name, "Nome" %>
-		<%= f.text_field :name, class: "form-control" %>
-  </div>
+  <% if @animals.any? %>
+	  <a href="javascript:void(0)" class="toggleCriation link-md" id="exist">Usar um animal já cadastrado</a>
+	  <div id="exist-container" class="hidden">
+	  	<a href="javascript:void(0)" class="toggleCriation link-md hidden" id="newAnimal">Criar novo animal</a>
+		  <div class="field" data-toggle="tooltip"> 
+		  	<label>Animais já cadastrados</label>
+		  	<select class="form-control" id="cadastrados">
+		  		<option value=""></option>
+		  		<% @animals.each do |animal| %>
+		  		<option value="<%=animal.id %>"><%= animal.name %></option>
+		  		<% end %>
+		  	</select>
+		  </div>
+		  <div class="actions">
+		  	<a href="" class="btn-secundario hidden" id="next">
+					Próximo passo
+					<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+				</a>
+		  </div>
+	  </div>
+  <% end %>
+  <div id="new">
+  	<div class="field" data-toggle="tooltip">
+			<%= f.label :name, "Nome" %>
+			<%= f.text_field :name, class: "form-control" %>
+	  </div>
 
-  <div class="field" data-toggle="tooltip">
-		<%= f.label :type, "Tipo" %>
-		<%= select_tag(:type, options_for_select([['Cão', 'Cão'], ['Gato', 'Gato']], '1'), class: "form-control")%>
-  </div>
+	  <div class="field" data-toggle="tooltip">
+			<%= f.label :type, "Tipo" %>
+			<%= select_tag(:type, options_for_select([['Cão', 'Cão'], ['Gato', 'Gato']], '1'), class: "form-control")%>
+	  </div>
 
-  <div class="field" data-toggle="tooltip" id="dogs-list">
-		<%= f.label :race, "Raça" %>
-		<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Affenpinscher', 'Affenpinscher'], ['Afghan Hound', 'Afghan Hound'], ['Airedale Terrier', 'Airedale Terrier']], '0'), class: "form-control")%>
-  </div>
+	  <div class="field" data-toggle="tooltip" id="dogs-list">
+			<%= f.label :race, "Raça" %>
+			<%= select_tag(:race, options_for_select([['Sem raça definida', '0'], ['Affenpinscher', 'Affenpinscher'], ['Afghan Hound', 'Afghan Hound'], ['Airedale Terrier', 'Airedale Terrier']], '0'), class: "form-control")%>
+	  </div>
 
-  <div class="field hidden" data-toggle="tooltip" id="cats-list">
-		<%= f.label :race, "Raça" %>
-		<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Abissínio', 'Abissínio'], ['Bengal', 'Bengal'], ['Persa', 'Persa']], '0'), class: "form-control")%>
-  </div>
+	  <div class="field hidden" data-toggle="tooltip" id="cats-list">
+			<%= f.label :race, "Raça" %>
+			<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Abissínio', 'Abissínio'], ['Bengal', 'Bengal'], ['Persa', 'Persa']], '0'), class: "form-control")%>
+	  </div>
 
-  <div class="field" data-toggle="tooltip">
-		<%= f.label :color, "Cor" %>
-		<%= f.text_field :color, class: "form-control" %>
-  </div>
+	  <div class="field" data-toggle="tooltip">
+			<%= f.label :color, "Cor" %>
+			<%= f.text_field :color, class: "form-control" %>
+	  </div>
 
-  <div class="field ">
-		<%= f.label :status %>
-		<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
-  </div>
+	  <div class="field ">
+			<%= f.label :status %>
+			<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
+	  </div>
 
-  <div class="actions">
-	<%= f.submit "Próximo passo", class: "btn-secundario btn-validate" %>
+	  <div class="actions">
+		<%= f.submit "Próximo passo", class: "btn-secundario btn-validate" %>
+	  </div>
   </div>
-
 <% end %>

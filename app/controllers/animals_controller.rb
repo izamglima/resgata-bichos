@@ -15,7 +15,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/new
   def new
-    
+    @animals = current_user.animals.all
     @animal = current_user.animals.new
   end
 
@@ -26,6 +26,7 @@ class AnimalsController < ApplicationController
   # POST /animals
   # POST /animals.json
   def create
+    @animals = current_user.animals.all
     @animal = current_user.animals.new(animal_params)
 
     respond_to do |format|
