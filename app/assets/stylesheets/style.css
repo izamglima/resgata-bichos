@@ -28,6 +28,10 @@ a:hover {
     text-decoration: none;
     background-color: rgba(254, 185, 255, 0.85);
 }
+.btn-secundario.cancel {
+	background-color: #ea2c2c;
+	border: 1px solid #ea2c2c;
+}
 .btn-secundario {
 	background-color: #6AB2A6;
 	color: #fff;
@@ -111,7 +115,9 @@ div.tooltip.top {
 	background-repeat: repeat;
 	text-align: center; 
 }
-.entrar {
+.entrar,
+.cadastro,
+.esqueci-senha {
 	height: 90vh;
 	background: url(site/black-thread-light.png);
 	background-repeat: repeat;
