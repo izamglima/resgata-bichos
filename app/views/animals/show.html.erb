@@ -28,7 +28,7 @@
 		<ul>
 		  <% @animal.images.each do |image| %>
 		  	<li>
-		  		<%= image.inspect %>
+		  		<img src="<%= image.image.url %>">
 		  	</li>
 		  <% end %>
 		</ul>

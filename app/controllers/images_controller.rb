@@ -5,13 +5,13 @@ class ImagesController < ApplicationController
   # GET /images.json
   def index
     @images = Image.where(animal_id: params[:animal_id])
-    @animal = Animal.find(params[:animal_id])
   end
 
   # GET /images/1
   # GET /images/1.json
   def show
     @animal = Animal.find(params[:animal_id])
+    @images = @animal.images.find(params[:id])
   end
 
   # GET /images/new
@@ -74,6 +74,6 @@ class ImagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def image_params
-      params.fetch(:image, {})
+      params.fetch(:image, {}).permit(:image)
     end
 end
