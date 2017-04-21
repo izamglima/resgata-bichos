@@ -21,6 +21,7 @@ class AnimalsController < ApplicationController
 
   # GET /animals/1/edit
   def edit
+    @animals = current_user.animals.all
   end
 
   # POST /animals
