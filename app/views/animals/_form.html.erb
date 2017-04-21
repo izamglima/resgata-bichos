@@ -10,7 +10,7 @@
 	  </ul>
 	</div>
   <% end %>
-  <% if @animals.any? %>
+  <% if @animals.any? && @animal.new_record? %>
 	  <a href="javascript:void(0)" class="toggleCriation link-md" id="exist">Usar um animal já cadastrado</a>
 	  <div id="exist-container" class="hidden">
 	  	<a href="javascript:void(0)" class="toggleCriation link-md hidden" id="newAnimal">Criar novo animal</a>
