@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419123305) do
+ActiveRecord::Schema.define(version: 20170421232824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,23 @@ ActiveRecord::Schema.define(version: 20170419123305) do
     t.string   "name"
     t.string   "race"
     t.string   "color"
-    t.string   "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "type"
     t.index ["user_id"], name: "index_animals_on_user_id", using: :btree
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "dataEvent"
+    t.string   "status"
+    t.boolean  "resolved"
+    t.string   "comment"
+    t.string   "place"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "animal_id"
+    t.index ["animal_id"], name: "index_events_on_animal_id", using: :btree
   end
 
   create_table "images", force: :cascade do |t|
@@ -58,5 +69,6 @@ ActiveRecord::Schema.define(version: 20170419123305) do
   end
 
   add_foreign_key "animals", "users"
+  add_foreign_key "events", "animals"
   add_foreign_key "images", "animals"
 end
