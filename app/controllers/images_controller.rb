@@ -18,7 +18,7 @@ class ImagesController < ApplicationController
   def new
     @animal = Animal.find(params[:animal_id])
     @animal_images = @animal.images
-
+  
     @image = Image.new(animal: @animal)
   end
 
@@ -31,8 +31,7 @@ class ImagesController < ApplicationController
   # POST /images.json
   def create
     @animal = Animal.find(params[:animal_id])
-    @image = Image.new(image_params)
-    
+    @image = @animal.images.new(image_params)
     respond_to do |format|
       if @image.save
         format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Image was successfully created.' }
