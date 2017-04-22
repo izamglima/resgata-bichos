@@ -38,7 +38,7 @@ function validaAnimalExistente(){
 }
 
 function changeSelects(){
-	var inputType = $('#type');
+	var inputType = $('#animal_animal_type');
 	if ($(inputType).val() == "Gato") {
 		$('#dogs-list').addClass('hidden');
 		$('#cats-list').removeClass('hidden');
@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', function() {
 			validaAnimal();
     	});
 
-    	$('#type').change(function(){
+    	$('#animal_animal_type').change(function(){
     		changeSelects();
     	});
 
