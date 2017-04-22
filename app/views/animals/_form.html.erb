@@ -24,7 +24,7 @@
 		  	</select>
 		  </div>
 		  <div class="actions">
-		  	<a href="" class="btn-secundario hidden" id="next">
+		  	<a href="" class="btn-secundario btn-fake hidden" id="next">
 					Próximo passo
 					<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
 				</a>
@@ -57,11 +57,10 @@
 			<%= f.text_field :color, class: "form-control" %>
 	  </div>
 
-	  <%= f.hidden_field :status, :value => params[:status] %>
+	  <%= hidden_field_tag :status, params[:status] %>
 	  
-
 	  <div class="actions">
-		<%= f.submit "Próximo passo", class: "btn-secundario btn-validate" %>
+		<%= f.submit "Próximo passo", class: "btn-secundario" , :onclick => "return validateform()" %>
 	  </div>
   </div>
 <% end %>

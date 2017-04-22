@@ -12,22 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :data_event %>
+    <%= f.label :data_event, "Data do evento" %>
     <%= f.text_field :data_event, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.text_field :status, class: "form-control" %>
-  </div>
+  <%= f.hidden_field :status, value: params[:status] %>
 
   <div class="field">
-    <%= f.label :resolved %>
+    <%= f.label :resolved, "Resolvido" %>
     <%= f.check_box :resolved, class: "form-control" %>
   </div>
 
   <div class="field">
-    <%= f.label :comment %>
+    <%= f.label :comment, "Detalhes do evento" %>
     <%= f.text_field :comment, class: "form-control" %>
   </div>
 

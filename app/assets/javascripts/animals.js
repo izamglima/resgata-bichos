@@ -1,4 +1,4 @@
-function validaAnimal(){
+function validateform(){
 	var inputNome = $('#animal_name');
 	var inputCor = $('#animal_color');
 	var errors = [];
@@ -28,7 +28,8 @@ function validaAnimal(){
 	}
 	
 	if (errors.length > 0)
-		event.preventDefault();				
+		return false;
+	return true;	
 }
 
 function validaAnimalExistente(){
@@ -51,10 +52,6 @@ function changeSelects(){
 
 $(document).on('turbolinks:load', function() {
     if($('#form-animal').length) {
-    	
-    	$('#new_animal').submit(function(event){
-			validaAnimal();
-    	});
 
     	$('#animal_animal_type').change(function(){
     		changeSelects();

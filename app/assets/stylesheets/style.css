@@ -48,6 +48,10 @@ a:hover {
     text-decoration: none;
     background-color: #a2d6cb;
 }
+.btn-fake {
+	display: inline-block;
+    text-align: center;
+}
 .icon {
 	display: inline-block;	
 }

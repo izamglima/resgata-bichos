@@ -17,11 +17,15 @@ class ImagesController < ApplicationController
   # GET /images/new
   def new
     @animal = Animal.find(params[:animal_id])
+    @animal_images = @animal.images
     @image = Image.new(animal: @animal)
   end
 
   # GET /images/1/edit
   def edit
+    @animal = Animal.find(params[:animal_id])
+    @animal_images = @animal.images
+    @images = @animal.images.find(params[:id])
   end
 
   # POST /images
@@ -33,7 +37,7 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       if @image.save
-        format.html { redirect_to new_animal_event_path(@animal), notice: 'Image was successfully created.' }
+        format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
         format.html { render :new }

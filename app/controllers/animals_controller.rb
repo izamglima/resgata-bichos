@@ -32,7 +32,7 @@ class AnimalsController < ApplicationController
 
     respond_to do |format|
       if @animal.save
-        format.html { redirect_to new_animal_image_path(@animal), notice: 'Animal was successfully created.' }
+        format.html { redirect_to new_animal_image_path(@animal, { status: params[:status] }), notice: 'Animal was successfully created.' }
         format.json { render :show, status: :created, location: @animal }
       else
         format.html { render :new }
