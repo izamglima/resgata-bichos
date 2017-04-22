@@ -11,21 +11,20 @@ class ImagesController < ApplicationController
   # GET /images/1.json
   def show
     @animal = Animal.find(params[:animal_id])
-    @images = @animal.images.find(params[:id])
+    @images = @animal.images
   end
 
   # GET /images/new
   def new
     @animal = Animal.find(params[:animal_id])
     @animal_images = @animal.images
+
     @image = Image.new(animal: @animal)
   end
 
   # GET /images/1/edit
   def edit
-    @animal = Animal.find(params[:animal_id])
     @animal_images = @animal.images
-    @images = @animal.images.find(params[:id])
   end
 
   # POST /images
@@ -33,8 +32,7 @@ class ImagesController < ApplicationController
   def create
     @animal = Animal.find(params[:animal_id])
     @image = Image.new(image_params)
-    @image.animal = @animal
-
+    
     respond_to do |format|
       if @image.save
         format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Image was successfully created.' }
@@ -64,20 +62,23 @@ class ImagesController < ApplicationController
   # DELETE /images/1.json
   def destroy
     @image.destroy
+
     respond_to do |format|
-      format.html { redirect_to images_url, notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to animal_images_url, notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_image
-      @image = Image.find(params[:id])
-    end
+  
+  # Use callbacks to share common setup or constraints between actions.
+  def set_image
+    @animal = Animal.find(params[:animal_id])
+    @image = @animal.images.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def image_params
-      params.fetch(:image, {}).permit(:image)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def image_params
+    params.fetch(:image, {}).permit(:image)
+  end
 end

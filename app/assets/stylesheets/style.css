@@ -131,6 +131,9 @@ div.tooltip.top {
 	text-align: left;
 	margin-bottom: 15px;
 }
+.check-box {
+    box-shadow: none;
+}
 .remember {
 	margin: 15px 0;
 }
