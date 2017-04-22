@@ -57,6 +57,9 @@
 			<%= f.text_field :color, class: "form-control" %>
 	  </div>
 
+	  <%= f.hidden_field :status, :value => params[:status] %>
+	  
+
 	  <div class="actions">
 		<%= f.submit "Próximo passo", class: "btn-secundario btn-validate" %>
 	  </div>
