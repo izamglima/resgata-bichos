@@ -3,7 +3,7 @@ var Maps = (function (module) {
 		var element = document.getElementById('map-canvas');
 		if (!element) {
 			return false;
-		}
+		};
 
 		//map options
 		var options = {
@@ -14,8 +14,7 @@ var Maps = (function (module) {
 			zoom: 10
 		};
 
-		var map = new google.maps.Map(element, options);		
-		}		
+		var map = new google.maps.Map(element, options);
 	};
 
 	return module;
