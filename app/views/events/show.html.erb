@@ -1,0 +1,37 @@
+<%= render :partial => 'layouts/header' %>
+
+<main>
+  <section class="show-animal">
+    <div class="container">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Data event:</strong>
+        <%= @event.data_event %>
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+        <%= @event.status %>
+      </p>
+
+      <p>
+        <strong>Resolved:</strong>
+        <%= @event.resolved %>
+      </p>
+
+      <p>
+        <strong>Comment:</strong>
+        <%= @event.comment %>
+      </p>
+
+      <p>
+        <strong>Place:</strong>
+        <%= @event.place %>
+      </p>
+
+      <%= link_to 'Edit', edit_animal_event_path(@animal, @event) %> |
+      <%= link_to 'Back', animal_events_path %>
+    </div>
+  </section>
+</main>

@@ -24,7 +24,7 @@
 		  	</select>
 		  </div>
 		  <div class="actions">
-		  	<a href="" class="btn-secundario hidden" id="next">
+		  	<a href="" class="btn-secundario btn-fake hidden" id="next">
 					Próximo passo
 					<span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
 				</a>
@@ -38,18 +38,18 @@
 	  </div>
 
 	  <div class="field" data-toggle="tooltip">
-			<%= f.label :type, "Tipo" %>
-			<%= select_tag(:type, options_for_select([['Cão', 'Cão'], ['Gato', 'Gato']], '1'), class: "form-control")%>
+			<%= f.label :animal_type, "Tipo" %>
+			<%= f.select(:animal_type, [['Cão', 'Cão'], ['Gato', 'Gato']], {}, { class: 'form-control' }) %>
 	  </div>
 
 	  <div class="field" data-toggle="tooltip" id="dogs-list">
 			<%= f.label :race, "Raça" %>
-			<%= select_tag(:race, options_for_select([['Sem raça definida', '0'], ['Affenpinscher', 'Affenpinscher'], ['Afghan Hound', 'Afghan Hound'], ['Airedale Terrier', 'Airedale Terrier']], '0'), class: "form-control")%>
+			<%= f.select(:race, [['Sem raça definida', 'Sem raça definida'], ['Affenpinscher', 'Affenpinscher'], ['Afghan Hound', 'Afghan Hound'], ['Airedale Terrier', 'Airedale Terrier']], {}, { class: 'form-control', :id => "dogs-list" }) %>
 	  </div>
 
 	  <div class="field hidden" data-toggle="tooltip" id="cats-list">
 			<%= f.label :race, "Raça" %>
-			<%= select_tag(:race, options_for_select([['Selecione a raça', '0'], ['Abissínio', 'Abissínio'], ['Bengal', 'Bengal'], ['Persa', 'Persa']], '0'), class: "form-control")%>
+			<%= f.select(:race, [['Selecione a raça', 'Selecione a raça'], ['Abissínio', 'Abissínio'], ['Bengal', 'Bengal'], ['Persa', 'Persa']], {}, { class: 'form-control', :id => "cats-list" }) %>
 	  </div>
 
 	  <div class="field" data-toggle="tooltip">
@@ -57,13 +57,10 @@
 			<%= f.text_field :color, class: "form-control" %>
 	  </div>
 
-	  <div class="field ">
-			<%= f.label :status %>
-			<%= f.text_field :status, :value => params[:status], :disabled => true, class: "form-control"  %>
-	  </div>
-
+	  <%= hidden_field_tag :status, params[:status] %>
+	  
 	  <div class="actions">
-		<%= f.submit "Próximo passo", class: "btn-secundario btn-validate" %>
+		<%= f.submit "Próximo passo", class: "btn-secundario" , :onclick => "return validateform()" %>
 	  </div>
   </div>
 <% end %>

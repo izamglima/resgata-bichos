@@ -1,6 +1,14 @@
-<h1>Editing Image</h1>
+<%= render :partial => 'layouts/header' %>
 
-<%= render 'form', image: @image %>
+<main>
+  <section class="edit-animal">
+    <div class="container">
+		<h1>Editing Image</h1>
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+		<%= render 'form', animal: @animal, image: @image %>
+
+		<%= link_to 'Show', @image %> |
+		<%= link_to 'Back', animal_images_path %>
+    </div>  
+  </section>
+</main>

@@ -48,6 +48,10 @@ a:hover {
     text-decoration: none;
     background-color: #a2d6cb;
 }
+.btn-fake {
+	display: inline-block;
+    text-align: center;
+}
 .icon {
 	display: inline-block;	
 }
@@ -127,6 +131,9 @@ div.tooltip.top {
 	text-align: left;
 	margin-bottom: 15px;
 }
+.check-box {
+    box-shadow: none;
+}
 .remember {
 	margin: 15px 0;
 }
@@ -147,4 +154,7 @@ div.tooltip.top {
 }
 .steps-cadastro li {
 	list-style-position: inside;
+}
+.final {
+	text-align: center;
 }

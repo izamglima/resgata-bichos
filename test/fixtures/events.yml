@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dataEvent: MyString
+  status: MyString
+  resolved: false
+  comment: MyString
+  place: MyString
+
+two:
+  dataEvent: MyString
+  status: MyString
+  resolved: false
+  comment: MyString
+  place: MyString

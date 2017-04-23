@@ -1,4 +1,4 @@
-function validaAnimal(){
+function validateform(){
 	var inputNome = $('#animal_name');
 	var inputCor = $('#animal_color');
 	var errors = [];
@@ -28,17 +28,19 @@ function validaAnimal(){
 	}
 	
 	if (errors.length > 0)
-		event.preventDefault();				
+		return false;
+	return true;	
 }
 
 function validaAnimalExistente(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
+	var myParam = location.search.split('status=')[1];
 	$('#next').removeClass('hidden');
-	$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new');
+	$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
 }
 
 function changeSelects(){
-	var inputType = $('#type');
+	var inputType = $('#animal_animal_type');
 	if ($(inputType).val() == "Gato") {
 		$('#dogs-list').addClass('hidden');
 		$('#cats-list').removeClass('hidden');
@@ -51,12 +53,8 @@ function changeSelects(){
 
 $(document).on('turbolinks:load', function() {
     if($('#form-animal').length) {
-    	
-    	$('#new_animal').submit(function(event){
-			validaAnimal();
-    	});
 
-    	$('#type').change(function(){
+    	$('#animal_animal_type').change(function(){
     		changeSelects();
     	});
 

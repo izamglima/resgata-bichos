@@ -1,0 +1,14 @@
+<%= render :partial => 'layouts/header' %>
+
+<main>
+  <section class="edit-animal">
+    <div class="container">
+		<h1>Editing Event</h1>
+
+		<%= render 'form', animal: @animal, event: @event %>
+
+		<%= link_to 'Show', @events %> |
+		<%= link_to 'Back', animal_events_path %>
+    </div>  
+  </section>
+</main>
