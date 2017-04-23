@@ -34,8 +34,9 @@ function validateform(){
 
 function validaAnimalExistente(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
+	var myParam = location.search.split('status=')[1];
 	$('#next').removeClass('hidden');
-	$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status=encontrado');
+	$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
 }
 
 function changeSelects(){

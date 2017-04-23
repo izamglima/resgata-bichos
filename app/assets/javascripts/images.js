@@ -21,8 +21,8 @@ function validateform(){
 function validaImagemExistente(){
     var idAnimal = $('#cadastrados').find(":selected").val();
     $('#next').removeClass('hidden');
-    console.log(idAnimal);
-    $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status=encontrado');
+    var myParam = location.search.split('status=')[1];
+    $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
 }
 
 $(document).on('turbolinks:load', function() {

@@ -19,7 +19,7 @@
           <select class="form-control" id="cadastrados">
             <option value=""></option>
             <% @animal_images.each do |image| %>
-            <option value="<%= image.id %>"><%= image.image_file_name %></option>
+            <option value="<%= image.animal.id %>"><%= image.image_file_name %></option>
             <% end %>
           </select>
         </div>

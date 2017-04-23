@@ -4,4 +4,8 @@ $(document).on('turbolinks:load', function() {
 	if($('.new-event').length){
 		$('.resolvido').addClass('hidden');
 	}
+	var myParam = location.search.split('cadastro=')[1];
+	if(myParam != null && myParam != "") {
+		$('.final').removeClass('hidden');
+	}
 });

@@ -1,6 +1,30 @@
 <%= render :partial => 'layouts/header' %>
 
 <main>
+  <section class="steps-cadastro final hidden">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <p id="notice"><%= notice %></p>
+    </div>
+    <div class="container"> 
+        <h2>Cadastro feito com sucesso!</h2>
+        <section class="steps-cadastro">
+          <div class="container">   
+            <ol class="row">
+              <li class="col col-md-3">Dados do animal</li>
+              <li class="col col-md-3">Imagens do animal</li>
+              <li class="col col-md-3">Local do evento</li>
+              <li class="col col-md-3">Pronto!</li>
+            </ol>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                100% Completos
+              </div>
+            </div>
+          </div>
+        </section>
+    </div>
+  </section>
   <section class="index-events">
     <div class="container">
 
