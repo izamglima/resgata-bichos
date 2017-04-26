@@ -8,4 +8,5 @@ $(document).on('turbolinks:load', function() {
 	if(myParam != null && myParam != "") {
 		$('.final').removeClass('hidden');
 	}
+
 });
