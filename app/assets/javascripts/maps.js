@@ -12,9 +12,9 @@ function initMap() {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-        
-        document.getElementById('latitude').value = position.coords.latitude;
-		document.getElementById('longitude').value = position.coords.longitude;
+        //Set to input hidden
+        document.getElementById('event_lat').value = position.coords.latitude;
+		document.getElementById('event_lng').value = position.coords.longitude;
 
         infoWindow.setPosition(pos);
         infoWindow.setContent('Usar esta localização.');

@@ -18,8 +18,8 @@
   </div>
 
   <%= f.hidden_field :status, value: params[:status] %>
-  <input type="hidden" name="latitude" value="" id="latitude">
-  <input type="hidden" name="longitude" value="" id="longitude">
+  <%= f.hidden_field :lat %>
+  <%= f.hidden_field :lng %>
 
   <div class="field resolvido">
     <%= f.label :resolved, "Resolvido" %>
