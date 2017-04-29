@@ -1,12 +1,14 @@
 $(document).on('turbolinks:load', function() {
-	$('#event_data_event').mask('00/00/0000');
+	if($('#new_event').length) {
+		$('#event_data_event').mask('00/00/0000');
 
-	if($('.new-event').length){
-		$('.resolvido').addClass('hidden');
-	}
-	var myParam = location.search.split('cadastro=')[1];
-	if(myParam != null && myParam != "") {
-		$('.final').removeClass('hidden');
-	}
+		if($('.new-event').length){
+			$('.resolvido').addClass('hidden');
+		}
+		
+		if (window.location.href.indexOf("cadastro") != -1) {
+			$('.final').removeClass('hidden');
+		}
 
+	}
 });

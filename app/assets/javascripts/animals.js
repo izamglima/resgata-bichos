@@ -57,16 +57,18 @@ $(document).on('turbolinks:load', function() {
     	$('#animal_animal_type').change(function(){
     		changeSelects();
     	});
-
-    	$('.toggleCriation').on('click', function(){
-    		$('#exist').toggleClass('hidden');
-    		$('#newAnimal').toggleClass('hidden');
-    		$('#new').toggleClass('hidden');
-    		$('#exist-container').toggleClass('hidden');
-    	});
     	
     	$('#cadastrados').change(function(){
     		validaAnimalExistente();
     	});
     }
+
+
+    //used in all forms 
+	$('.toggleCriation').on('click', function(){
+		$('#exist').toggleClass('hidden');
+		$('#newItem').toggleClass('hidden');
+		$('#new').toggleClass('hidden');
+		$('#exist-container').toggleClass('hidden');
+	});
 });

@@ -35,11 +35,11 @@
       <table>
         <thead>
           <tr>
-            <th>Dataevent</th>
+            <th>Data do evento</th>
             <th>Status</th>
-            <th>Resolved</th>
-            <th>Comment</th>
-            <th>Place</th>
+            <th>Resolvido</th>
+            <th>Comentário</th>
+            <th>Localização</th>
             <th colspan="3"></th>
           </tr>
         </thead>
@@ -51,7 +51,7 @@
               <td><%= event.status %></td>
               <td><%= event.resolved %></td>
               <td><%= event.comment %></td>
-              <td><%= event.place %></td>
+              <td><%= event.address %></td>
               <td><%= link_to 'Show', animal_event_path(params[:animal_id], event) %></td>
               <td><%= link_to 'Edit', edit_animal_event_path(params[:animal_id], event) %></td>
               <td><%= link_to 'Destroy', animal_event_path(params[:animal_id], event), method: :delete, data: { confirm: 'Are you sure?' } %></td>

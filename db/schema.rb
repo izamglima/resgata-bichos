@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170426233838) do
+ActiveRecord::Schema.define(version: 20170429154131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,13 +30,13 @@ ActiveRecord::Schema.define(version: 20170426233838) do
     t.string   "status"
     t.boolean  "resolved"
     t.string   "comment"
-    t.string   "place"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "animal_id"
     t.date     "data_event"
-    t.decimal  "lat",        precision: 10, scale: 6
-    t.decimal  "lng",        precision: 10, scale: 6
+    t.decimal  "latitude",   precision: 10, scale: 6
+    t.decimal  "longitude",  precision: 10, scale: 6
+    t.string   "address"
     t.index ["animal_id"], name: "index_events_on_animal_id", using: :btree
   end
 

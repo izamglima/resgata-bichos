@@ -10,8 +10,21 @@
       </ul>
     </div>
   <% end %>
-  <div id="map-canvas"></div>
-
+  <div class="select-images">
+    <a href="javascript:void(0)" class="toggleCriation link-md" id="exist">Digitar um endereço manualmente</a>
+    <div id="exist-container" class="hidden">
+      <a href="javascript:void(0)" class="toggleCriation link-md hidden" id="newItem">Usar localização atual</a>
+      <div class="field" data-toggle="tooltip"> 
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="new">
+    <div id="map-canvas"></div>
+  </div>
   <div class="field">
     <%= f.label :data_event, "Data do evento" %>
     <%= f.text_field :data_event, class: "form-control" %>
@@ -30,12 +43,6 @@
     <%= f.label :comment, "Detalhes do evento" %>
     <%= f.text_area :comment, class: "form-control" %>
   </div>
-
-  <div class="field" style="visibility: hidden;">
-    <%= f.label :place %>
-    <%= f.text_field :place, class: "form-control" %>
-  </div>
-  
 
   <div class="actions"%>
     <%= f.submit "Completar cadastro", class: "btn-secundario" %>
