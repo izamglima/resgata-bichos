@@ -10,13 +10,29 @@
       </ul>
     </div>
   <% end %>
-
+  <div class="select-images">
+    <a href="javascript:void(0)" class="link-md" id="exist" onclick="hideMapa();toggleCreation();">Digitar um endereço manualmente</a>
+    <div id="exist-container" class="hidden">
+      <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Usar localização atual</a>
+      <div class="field" data-toggle="tooltip"> 
+        <div class="field">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control" %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="new">
+    <div id="map-canvas"></div>
+  </div>
   <div class="field">
     <%= f.label :data_event, "Data do evento" %>
     <%= f.text_field :data_event, class: "form-control" %>
   </div>
 
   <%= f.hidden_field :status, value: params[:status] %>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
 
   <div class="field resolvido">
     <%= f.label :resolved, "Resolvido" %>
@@ -25,15 +41,10 @@
 
   <div class="field">
     <%= f.label :comment, "Detalhes do evento" %>
-    <%= f.text_field :comment, class: "form-control" %>
+    <%= f.text_area :comment, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :place %>
-    <%= f.text_field :place, class: "form-control" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions"%>
+    <%= f.submit "Completar cadastro", class: "btn-secundario" %>
   </div>
 <% end %>

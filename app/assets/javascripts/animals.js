@@ -51,18 +51,18 @@ function changeSelects(){
 	}
 }
 
+function toggleCreation() {
+	$('#exist').toggleClass('hidden');
+	$('#newItem').toggleClass('hidden');
+	$('#new').toggleClass('hidden');
+	$('#exist-container').toggleClass('hidden');	
+}
+
 $(document).on('turbolinks:load', function() {
     if($('#form-animal').length) {
 
     	$('#animal_animal_type').change(function(){
     		changeSelects();
-    	});
-
-    	$('.toggleCriation').on('click', function(){
-    		$('#exist').toggleClass('hidden');
-    		$('#newAnimal').toggleClass('hidden');
-    		$('#new').toggleClass('hidden');
-    		$('#exist-container').toggleClass('hidden');
     	});
     	
     	$('#cadastrados').change(function(){

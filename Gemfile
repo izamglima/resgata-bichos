@@ -30,6 +30,9 @@ gem 'omniauth-facebook'
 gem "paperclip", "~> 5.0.0"
 gem 'aws-sdk'
 
+# GEOCoder for manipulate data from maps
+gem 'geocoder'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

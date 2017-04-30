@@ -11,9 +11,9 @@
   <% end %>
   <% if animal.images.any? %>
     <div class="select-images">
-      <a href="javascript:void(0)" class="toggleCriation link-md" id="exist">Usar uma imagem já cadastrada</a>
+      <a href="javascript:void(0)" class="link-md" id="exist" onclick="toggleCreation();">Usar uma imagem já cadastrada</a>
       <div id="exist-container" class="hidden">
-        <a href="javascript:void(0)" class="toggleCriation link-md hidden" id="newImage">Criar nova imagem</a>
+        <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Criar nova imagem</a>
         <div class="field" data-toggle="tooltip"> 
           <label>Imagens já cadastradas</label>
           <select class="form-control" id="cadastrados">

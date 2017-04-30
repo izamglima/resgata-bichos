@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to animal_events_path(@animal, "cadastro=true"),  notice: 'Event was successfully created.' }
+        format.html { redirect_to animal_events_path(@animal, "cadastro"),  notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }
@@ -75,6 +75,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:data_event, :status, :resolved, :comment, :place)
+      params.require(:event).permit(:data_event, :status, :resolved, :comment, :latitude, :longitude, :address)
     end
 end

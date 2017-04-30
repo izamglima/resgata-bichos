@@ -6,7 +6,7 @@
       <p id="notice"><%= notice %></p>
 
       <p>
-        <strong>Data event:</strong>
+        <strong>Data do evento:</strong>
         <%= @event.data_event %>
       </p>
 
@@ -16,18 +16,18 @@
       </p>
 
       <p>
-        <strong>Resolved:</strong>
+        <strong>Resolvido:</strong>
         <%= @event.resolved %>
       </p>
 
       <p>
-        <strong>Comment:</strong>
+        <strong>Comentário:</strong>
         <%= @event.comment %>
       </p>
 
       <p>
-        <strong>Place:</strong>
-        <%= @event.place %>
+        <strong>Localização:</strong>
+        <%= @event.address %>
       </p>
 
       <%= link_to 'Edit', edit_animal_event_path(@animal, @event) %> |

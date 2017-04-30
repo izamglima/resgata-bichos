@@ -27,13 +27,6 @@ function validaImagemExistente(){
 
 $(document).on('turbolinks:load', function() {
     if($('#form-image').length) {
-
-    	$('.toggleCriation').on('click', function(){
-    		$('#exist').toggleClass('hidden');
-    		$('#newImage').toggleClass('hidden');
-    		$('#new').toggleClass('hidden');
-    		$('#exist-container').toggleClass('hidden');
-    	});
     	
     	$('#cadastrados').change(function(){
     		validaImagemExistente();
