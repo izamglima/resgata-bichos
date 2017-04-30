@@ -11,9 +11,9 @@
     </div>
   <% end %>
   <div class="select-images">
-    <a href="javascript:void(0)" class="toggleCriation link-md" id="exist">Digitar um endereço manualmente</a>
+    <a href="javascript:void(0)" class="link-md" id="exist" onclick="hideMapa();toggleCreation();">Digitar um endereço manualmente</a>
     <div id="exist-container" class="hidden">
-      <a href="javascript:void(0)" class="toggleCriation link-md hidden" id="newItem">Usar localização atual</a>
+      <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Usar localização atual</a>
       <div class="field" data-toggle="tooltip"> 
         <div class="field">
           <%= f.label :address %>
@@ -31,8 +31,8 @@
   </div>
 
   <%= f.hidden_field :status, value: params[:status] %>
-  <%= f.hidden_field :lat %>
-  <%= f.hidden_field :lng %>
+  <%= f.hidden_field :latitude %>
+  <%= f.hidden_field :longitude %>
 
   <div class="field resolvido">
     <%= f.label :resolved, "Resolvido" %>

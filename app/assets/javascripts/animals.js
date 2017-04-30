@@ -51,6 +51,13 @@ function changeSelects(){
 	}
 }
 
+function toggleCreation() {
+	$('#exist').toggleClass('hidden');
+	$('#newItem').toggleClass('hidden');
+	$('#new').toggleClass('hidden');
+	$('#exist-container').toggleClass('hidden');	
+}
+
 $(document).on('turbolinks:load', function() {
     if($('#form-animal').length) {
 
@@ -62,13 +69,4 @@ $(document).on('turbolinks:load', function() {
     		validaAnimalExistente();
     	});
     }
-
-
-    //used in all forms 
-	$('.toggleCriation').on('click', function(){
-		$('#exist').toggleClass('hidden');
-		$('#newItem').toggleClass('hidden');
-		$('#new').toggleClass('hidden');
-		$('#exist-container').toggleClass('hidden');
-	});
 });

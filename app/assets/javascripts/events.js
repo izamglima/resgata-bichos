@@ -1,3 +1,8 @@
+function hideMapa(){
+	$('#map-canvas').remove();
+	$('#event_latitude').val(null);
+	$('#event_longitude').val(null);
+}
 $(document).on('turbolinks:load', function() {
 	if($('#new_event').length) {
 		$('#event_data_event').mask('00/00/0000');
@@ -9,6 +14,5 @@ $(document).on('turbolinks:load', function() {
 		if (window.location.href.indexOf("cadastro") != -1) {
 			$('.final').removeClass('hidden');
 		}
-
 	}
 });
