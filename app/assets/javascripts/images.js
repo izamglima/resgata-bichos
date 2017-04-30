@@ -31,7 +31,7 @@ function validaImagemExistente(){
     }
 }
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
     if($('#form-image').length) {
     	
     	$('#cadastrados').change(function(){

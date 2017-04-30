@@ -29,22 +29,25 @@
           <% end %>
 
           <div class="field" data-toggle="tooltip">
-            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i>
+            <%= f.label :current_password, "Senha" %> <i>(Digite sua senha para confirmar suas alterações)</i>
             <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
           </div>
 
-          <div class="field" data-toggle="tooltip">
-            <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-            <% if @minimum_password_length %>
-              <br />
-              <em><%= @minimum_password_length %> characters minimum</em>
-            <% end %>
-          </div>
+          <a href="javascript:void(0)" class="link-md" id="exist" onclick="toggleCreation();">Alterar senha</a>
+          <div id="exist-container" class="hidden">
+            <div class="field" data-toggle="tooltip">
+              <%= f.label :password, "Senha"  %> <i>(Deixe em branco caso não queira alterar)</i>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+              <% if @minimum_password_length %>
+                <br />
+                <em>No mínimo <%= @minimum_password_length %> caracteres</em>
+              <% end %>
+            </div>
 
-          <div class="field" data-toggle="tooltip">
-            <%= f.label :password_confirmation %>
-            <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %><br /> 
+            <div class="field" data-toggle="tooltip">
+              <%= f.label :password_confirmation, "Confirmação da senha" %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %><br /> 
+            </div>
           </div>
 
           <div class="actions">
@@ -56,7 +59,7 @@
 
         <p>Insatisfeito? :( <%= button_to "Cancelar minha conta", registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, class: "btn-secundario cancel" %></p>
 
-        <%= link_to "Back", :back %>
+        <%= link_to "Voltar", :back %>
       </div>
     </div>  
   </section>

@@ -62,8 +62,9 @@ function toggleCreation() {
 	$('#exist-container').toggleClass('hidden');	
 }
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
     if($('#form-animal').length) {
+    	$('#animal_age').mask('00');
 
     	$('#animal_animal_type').change(function(){
     		changeSelects();
@@ -72,5 +73,9 @@ $(document).on('turbolinks:load', function() {
     	$('#cadastrados').change(function(){
     		validaAnimalExistente();
     	});
+    }
+
+    if ($('#notice').val() === "") {
+    	$('.alert').addClass('hidden');
     }
 });

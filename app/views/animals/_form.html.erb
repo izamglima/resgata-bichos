@@ -35,7 +35,7 @@
   	<div class="field" data-toggle="tooltip">
 			<%= f.label :name, "Nome" %>
 			<%= f.text_field :name, class: "form-control" %>
-	  </div>
+	</div>
 
 	  <div class="field" data-toggle="tooltip">
 			<%= f.label :animal_type, "Tipo" %>
@@ -57,8 +57,21 @@
 			<%= f.text_field :color, class: "form-control" %>
 	  </div>
 
-	  <%= hidden_field_tag :status, params[:status] %>
-	  
+	  <div class="field" data-toggle="tooltip">
+			<%= f.label :sex, "Sexo" %>
+			<%= f.select(:sex, [['Macho', 'Macho'], ['Fêmea', 'Fêmea']], {}, { class: 'form-control'}) %>
+	  </div>
+
+	  <div class="field" data-toggle="tooltip">
+			<%= f.label :age, "Idade" %>
+			<%= f.text_field :age, class: "form-control" %>
+	  </div>
+
+	  <div class="field" data-toggle="tooltip">
+			<%= f.label :size, "Porte" %>
+			<%= f.select(:size, [['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']], {}, { class: 'form-control'}) %>
+	  </div>
+
 	  <div class="actions">
 		<%= f.submit "Próximo passo", class: "btn-secundario" , :onclick => "return validateform()" %>
 	  </div>

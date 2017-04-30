@@ -3,7 +3,7 @@ function hideMapa(){
 	$('#event_latitude').val(null);
 	$('#event_longitude').val(null);
 }
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
 	if($('#new_event').length) {
 		$('#event_data_event').mask('00/00/0000');
 
