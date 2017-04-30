@@ -23,10 +23,12 @@ function validaImagemExistente(){
     var url = window.location.hostname;
     var myParam = location.search.split('status=')[1];
     $('#next').removeClass('hidden');
-    if(url === "localhost")
+    if(url === "localhost"){
         $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
-    else
+    }
+    else {        
         $('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
+    }
 }
 
 $(document).on('turbolinks:load', function() {

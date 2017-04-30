@@ -2,4 +2,13 @@
 	div.form-container {
 		width: 100%;
 	}
+	div.principal-texto {
+		margin-top: 20px;
+	}
+	section.principal {
+		background-position: 0;
+	}
+	section.como-funciona {
+		height: auto;
+	}
 }
