@@ -35,9 +35,13 @@ function validateform(){
 function validaAnimalExistente(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
 	var myParam = location.search.split('status=')[1];
+	var url = window.location.hostname;
 	$('#next').removeClass('hidden');
-	$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
-}
+	if(url === "localhost")
+		$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
+	else
+		$('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
+}	
 
 function changeSelects(){
 	var inputType = $('#animal_animal_type');

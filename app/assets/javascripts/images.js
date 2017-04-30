@@ -20,9 +20,13 @@ function validateform(){
 
 function validaImagemExistente(){
     var idAnimal = $('#cadastrados').find(":selected").val();
-    $('#next').removeClass('hidden');
+    var url = window.location.hostname;
     var myParam = location.search.split('status=')[1];
-    $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
+    $('#next').removeClass('hidden');
+    if(url === "localhost")
+        $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
+    else
+        $('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
 }
 
 $(document).on('turbolinks:load', function() {
