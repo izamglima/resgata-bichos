@@ -10,6 +10,9 @@ main {
 a:hover {
 	color: #666;
 }
+ul {
+	list-style: none;
+}
 .btn-principal {
 	background-color: #B046B2;
 	color: #fff;
@@ -160,6 +163,25 @@ div.tooltip.top {
 }
 .index-animals h3 {
 	border-bottom: 1px solid #eee;
+}
+.show-animal-container {
+	border: 1px solid #eee;
+	padding: 20px;
+	margin-top: 30px;
+}
+.show-animal-container p {
+	display: inline-block;
+}
+.show-animal-container h3 {
+	display: inline-block;
+}
+.show-animal-container ul {
+	display: block;
+    clear: both;
+    padding-left: 20px;
+}
+.show-animal-container li {
+	display: inline-block;
 }
 #map-canvas {
 	height: 500px;
