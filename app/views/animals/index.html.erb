@@ -10,33 +10,66 @@
       </div>
       <h1>Meus animais</h1>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Race</th>
-            <th>Color</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+      <div class="row visible-lg text-center">
+        <div class="col-md-1">
+          <h3>Tipo</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Nome</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Raça</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Cor</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Gênero</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Idade</h3>
+        </div>
+        <div class="col-md-1">
+          <h3>Porte</h3>
+        </div>
+      </div>
 
-        <tbody>
-          <% @animals.each do |animal| %>
-            <tr>
-              <td><%= animal.name %></td>
-              <td><%= animal.race %></td>
-              <td><%= animal.color %></td>
-              <td><%= link_to 'Show', animal %></td>
-              <td><%= link_to 'Edit', edit_animal_path(animal) %></td>
-              <td><%= link_to 'Destroy', animal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <% @animals.each do |animal| %>
+        <div class="row text-center">
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.animal_type %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.name %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.race %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.color %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.sex %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.age %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <p><%= animal.size %></p>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <%= link_to 'Exibir', animal %>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <%= link_to 'Editar', edit_animal_path(animal) %>
+          </div>
+          <div class="col-md-1 col-sm-1 col-xs-12">
+            <%= link_to 'Deletar', animal, method: :delete, data: { confirm: 'Você tem certeza? Ao deletar um animal você irá excluir suas fotos e os eventos cadastrados.' } %>
+          </div>
+        </div>
+      <% end %>
 
-      <br>
-
-      <%= link_to 'New Animal', new_animal_path %>
+      <%= link_to 'Cadastrar novo animal', new_animal_path %>
     </div>  
   </section>
 </main>

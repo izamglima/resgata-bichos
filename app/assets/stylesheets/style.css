@@ -158,6 +158,9 @@ div.tooltip.top {
 .final {
 	text-align: center;
 }
+.index-animals h3 {
+	border-bottom: 1px solid #eee;
+}
 #map-canvas {
 	height: 500px;
 	width: 100%;
