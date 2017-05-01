@@ -8,68 +8,42 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <p id="notice"><%= notice %></p>
       </div>
-      <h1>Meus animais</h1>
-
-      <div class="row visible-lg text-center">
-        <div class="col-md-1">
-          <h3>Tipo</h3>
+      <div class="row">
+        <div class="col-md-9">
+          <h1>Meus animais</h1>  
         </div>
-        <div class="col-md-1">
-          <h3>Nome</h3>
-        </div>
-        <div class="col-md-1">
-          <h3>Raça</h3>
-        </div>
-        <div class="col-md-1">
-          <h3>Cor</h3>
-        </div>
-        <div class="col-md-1">
-          <h3>Gênero</h3>
-        </div>
-        <div class="col-md-1">
-          <h3>Idade</h3>
-        </div>
-        <div class="col-md-1">
-          <h3>Porte</h3>
+        <div class="col-md-3">
+          <%= link_to 'Cadastrar novo animal', new_animal_path, class: "btn-secundario" %>
         </div>
       </div>
+      <div class="row">
+        <% @animals.each do |animal| %>
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="card-animals-container">
+              <ul>
+                <% animal.images.take(1).each do |image, i| %>
+                  <li>
+                    <img src="<%= image.image.url %>" class="img-rounded">
+                  </li>
+               <% end %>
+              </ul>
+              <p>Nome: <%= animal.name %></p>
+              <p>Gênero: <%= animal.sex %></p>
+              <p>Idade: <%= animal.age %></p>
 
-      <% @animals.each do |animal| %>
-        <div class="row text-center">
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.animal_type %></p>
+              <div class="col-md-4 col-sm-4 col-xs-12 links">
+                <%= link_to 'Deletar', animal, method: :delete, data: { confirm: 'Você tem certeza? Ao deletar um animal você irá excluir suas fotos e os eventos cadastrados.' } %>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12 links">
+                <%= link_to 'Editar', edit_animal_path(animal) %>
+              </div>
+              <div class="col-md-4 col-sm-4 col-xs-12 links">
+                <%= link_to 'Exibir', animal %>
+              </div>
+            </div>
           </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.name %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.race %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.color %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.sex %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.age %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <p><%= animal.size %></p>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <%= link_to 'Exibir', animal %>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <%= link_to 'Editar', edit_animal_path(animal) %>
-          </div>
-          <div class="col-md-1 col-sm-1 col-xs-12">
-            <%= link_to 'Deletar', animal, method: :delete, data: { confirm: 'Você tem certeza? Ao deletar um animal você irá excluir suas fotos e os eventos cadastrados.' } %>
-          </div>
-        </div>
-      <% end %>    
-
-      <%= link_to 'Cadastrar novo animal', new_animal_path %>
+        <% end %>
+      </div>
     </div>  
   </section>
 </main>

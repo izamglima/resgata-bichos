@@ -161,8 +161,23 @@ div.tooltip.top {
 .final {
 	text-align: center;
 }
-.index-animals h3 {
-	border-bottom: 1px solid #eee;
+.card-animals-container {
+	padding: 20px 20px 35px 20px;
+    background: #f3f2f2;
+    border: 1px dashed #929292;
+    margin-top: 25px;
+}
+.index-animals .btn-secundario {
+    margin-top: 17px;
+    display: inline-block;
+    text-align: center;
+}
+.card-animals-container ul {
+	padding: 0;
+}
+.card-animals-container .links {
+	border-top: 1px solid #929292;
+	padding-top: 5px;
 }
 .show-animal-container {
 	border: 1px solid #eee;
