@@ -9,6 +9,7 @@ main {
 }
 a:hover {
 	color: #666;
+	cursor: pointer;
 }
 ul {
 	list-style: none;

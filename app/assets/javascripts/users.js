@@ -1,4 +1,4 @@
-function validaUser(){
+function validateform(){
 	var inputEmail = $('#user_email');
 	var inputSenha = $('#user_password');
 	var errors = [];
@@ -27,24 +27,40 @@ function validaUser(){
 		})
 	}
 	if($('.cadastro').length) {
-		if ($('#user_password_confirmation').val() == "") {
-			$('#user_password_confirmation').parent().tooltip({
+		var inputNome = $('#user_name');
+		var inputPass = $('#user_password_confirmation');
+		
+		if ($(inputPass).val() == "") {
+			$(inputPass).parent().tooltip({
 	    				trigger: 'manual',
 	                    title: 'Por favor, preencha o campo.',
 	                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
 	                    placement: 'top'
 	    			}).tooltip('show');
 			errors.push(1);
-			$('#user_password_confirmation').on('keyup', function() {
-				$('#user_password_confirmation').parent().tooltip('hide');
+			$(inputPass).on('keyup', function() {
+				$(inputPass).parent().tooltip('hide');
 			})
-		}	
+		}
+		if ($(inputNome).val() == "") {
+			$(inputNome).parent().tooltip({
+	    				trigger: 'manual',
+	                    title: 'Por favor, preencha o campo.',
+	                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
+	                    placement: 'top'
+	    			}).tooltip('show');
+			errors.push(1);
+			$(inputNome).on('keyup', function() {
+				$(inputNome).parent().tooltip('hide');
+			})
+		}
 	}
 	if (errors.length > 0)
-		event.preventDefault();				
+		return false;
+	return true;				
 }
 
-$(document).on('turbolinks:load', function() {
+$(document).ready(function() {
     if($('#new_user').length) {
     	$('#new_user').submit(function(event){
 			validaUser();
