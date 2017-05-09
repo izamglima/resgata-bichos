@@ -23,7 +23,7 @@
               <ul>
                 <% animal.images.take(1).each do |image, i| %>
                   <li>
-                    <img src="<%= image.image.url %>" class="img-rounded">
+                    <img class="img-responsive" src="<%= image.image.url %>" class="img-rounded">
                   </li>
                <% end %>
               </ul>
