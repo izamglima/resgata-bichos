@@ -9,4 +9,9 @@ class Animal < ApplicationRecord
 	belongs_to :user
 	has_many :images, dependent: :destroy
 	has_many :events, dependent: :destroy
+
+	def self.search(search)
+	  where("animal_type LIKE ?", "%#{search}%") 
+	  #where("content LIKE ?", "%#{search}%")
+	end
 end
