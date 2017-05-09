@@ -10,7 +10,7 @@
 
 		<div class="field" data-toggle="tooltip">
 		<%= label_tag :animal_type, "Tipo" %>	
-		<%= select_tag(params[:animal_type], options_for_select([['Cão', "Cão"], ['Gato', "Gato"]]), { class: 'form-control' })%>
+		<%= select_tag(params[:search], options_for_select([['Cão', "Cão"], ['Gato', "Gato"]]), { class: 'form-control' })%>
 
 	  	</div>
 		<%= submit_tag "Search" %>
