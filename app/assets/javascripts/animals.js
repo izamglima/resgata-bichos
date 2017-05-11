@@ -78,4 +78,10 @@ $(document).ready(function() {
     if ($('#notice').val() === "") {
     	$('.alert').addClass('hidden');
     }
+
+    if($('#search-form').length) {
+    	$('#animal_type').change(function(){
+    		changeSelects();
+    	});
+    }
 });
