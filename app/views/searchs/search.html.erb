@@ -10,9 +10,19 @@
 
 		<div class="field" data-toggle="tooltip">
 		<%= label_tag :animal_type, "Tipo" %>	
-		<%= select_tag(params[:search], options_for_select([['Cão', "Cão"], ['Gato', "Gato"]]), { class: 'form-control' })%>
-
+		<%= select_tag(params[:tipo_animal], options_for_select([['Cão', "Cão"], ['Gato', "Gato"]]), { class: 'form-control' })%>
 	  	</div>
+
+	  	<div class="field" data-toggle="tooltip">
+	  		<%= label_tag :sex, "Sexo" %>	
+	  		<%= select_tag(params[:sex], options_for_select([['Macho', 'Macho'], ['Fêmea', 'Fêmea']]), { class: 'form-control' })%>
+	  	</div>
+
+	  	<div class="field" data-toggle="tooltip">
+			<%= label_tag :size, "Porte" %>
+			<%= select_tag(params[:size], options_for_select([['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']]), { class: 'form-control' })%>
+	  	</div>
+
 		<%= submit_tag "Search" %>
 		<% end %>
 

@@ -10,8 +10,7 @@ class Animal < ApplicationRecord
 	has_many :images, dependent: :destroy
 	has_many :events, dependent: :destroy
 
-	def self.search(search)
-	  where("animal_type LIKE ?", "%#{search}%") 
-	  #where("content LIKE ?", "%#{search}%")
+	def self.where(tipo_animal, sex, size)
+	  where('animal_type LIKE :tipo_animal OR sex LIKE :sex OR size LIKE :size', tipo_animal: "%#{tipo_animal}%", sex: "%#{sex}%", size: "%#{size}%")
 	end
 end
