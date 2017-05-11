@@ -10,7 +10,13 @@ class Animal < ApplicationRecord
 	has_many :images, dependent: :destroy
 	has_many :events, dependent: :destroy
 
-	def self.where(tipo_animal, sex, size)
-	  where('animal_type LIKE :tipo_animal OR sex LIKE :sex OR size LIKE :size', tipo_animal: "%#{tipo_animal}%", sex: "%#{sex}%", size: "%#{size}%")
+	def self.search(search)
+	  scope = self
+
+	  scope = scope.where(animal_type: search[:animal_type]) if search[:animal_type].present?
+	  scope = scope.where(sex: search[:sex]) if search[:sex].present?
+	  scope = scope.where(size: search[:size]) if search[:size].present?
+	  
+	  scope
 	end
 end

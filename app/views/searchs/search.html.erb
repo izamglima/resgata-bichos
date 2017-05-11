@@ -5,35 +5,32 @@
     <div class="container">
     	<h1>Procurar</h1>
 
-		<%= form_tag(search_path, :method => "get", id: "search-form") do %>
-		<%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+		<%= form_tag(search_path, :method => "get", id: "search-form", name: "search") do |f| %>
+			<div class="field" data-toggle="tooltip">
+				<%= label_tag :animal_type, "Tipo" %>	
+				<%= select_tag(:animal_type, options_for_select([['Selecione um tipo', nil], ['Cão', "Cão"], ['Gato', "Gato"]], params.dig(:search, :animal_type)), { class: 'form-control', name: 'search[animal_type]' })%>
+		  	</div>
 
-		<div class="field" data-toggle="tooltip">
-		<%= label_tag :animal_type, "Tipo" %>	
-		<%= select_tag(params[:tipo_animal], options_for_select([['Cão', "Cão"], ['Gato', "Gato"]]), { class: 'form-control' })%>
-	  	</div>
+		  	<div class="field" data-toggle="tooltip">
+		  		<%= label_tag :sex, "Sexo" %>	
+		  		<%= select_tag(:sex, options_for_select([['Selecione um seXo', nil], ['Macho', 'Macho'], ['Fêmea', 'Fêmea']], params.dig(:search, :sex)), { class: 'form-control', name: 'search[sex]' })%>
+		  	</div>
 
-	  	<div class="field" data-toggle="tooltip">
-	  		<%= label_tag :sex, "Sexo" %>	
-	  		<%= select_tag(params[:sex], options_for_select([['Macho', 'Macho'], ['Fêmea', 'Fêmea']]), { class: 'form-control' })%>
-	  	</div>
+		  	<div class="field" data-toggle="tooltip">
+				<%= label_tag :size, "Porte" %>
+				<%= select_tag(:size, options_for_select([['Selecione um tamanho', nil], ['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']], params.dig(:search, :size)), { class: 'form-control', name: 'search[size]' })%>
+		  	</div>
 
-	  	<div class="field" data-toggle="tooltip">
-			<%= label_tag :size, "Porte" %>
-			<%= select_tag(params[:size], options_for_select([['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']]), { class: 'form-control' })%>
-	  	</div>
-
-		<%= submit_tag "Search" %>
-		<% end %>
-
-		<% if @animals.present? %>
-			<% @animals.each do |animal| %>
-				<%= animal.name %>
+			<%= submit_tag "Search" %>
 			<% end %>
-		<% else %>
 
-		  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-		<% end %>
+			<% if @animals.present? %>
+				<% @animals.each do |animal| %>
+					<%= "#{animal.name} #{animal.animal_type} #{animal.sex} #{animal.size}"  %><br />
+				<% end %>
+			<% else %>
+			  <p>Arruma isso izabela, não existem "<%= params[:search].values.join(', ') %>".</p>
+			<% end %>
     </div>
  </section>
 </main>
