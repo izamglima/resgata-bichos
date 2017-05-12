@@ -174,7 +174,7 @@ div.tooltip.top {
     text-align: center;
 }
 .card-animals-container ul {
-	padding: 0;
+	padding: 2px;
 }
 .card-animals-container .links {
 	border-top: 1px solid #929292;
