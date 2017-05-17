@@ -18,7 +18,7 @@ function validateform(){
     return true;
 }
 
-function validaImagemExistente(){
+function validateImage(){
     var idAnimal = $('#cadastrados').find(":selected").val();
     var url = window.location.hostname;
     var myParam = location.search.split('status=')[1];
@@ -35,7 +35,7 @@ $(document).ready(function() {
     if($('#form-image').length) {
     	
     	$('#cadastrados').change(function(){
-    		validaImagemExistente();
+    		validateImage();
     	});
     }
     if($('.edit-animal').length) {

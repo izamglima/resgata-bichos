@@ -32,7 +32,7 @@ function validateform(){
 	return true;	
 }
 
-function validaAnimalExistente(){
+function validateAnimal(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
 	var myParam = location.search.split('status=')[1];
 	var url = window.location.hostname;
@@ -54,6 +54,18 @@ function changeSelects(){
 		$('#dogs-list').removeClass('hidden');
 	}
 }
+function changeSelectsSearch(){
+	var inputType = $('#animal_type');
+	if ($(inputType).val() == "Gato") {
+		$('#dogs-list').addClass('hidden');
+		$('#cats-list').removeClass('hidden');
+	}
+	if ($(inputType).val() == "Cão") {
+		$('#cats-list').addClass('hidden');
+		$('#dogs-list').removeClass('hidden');
+	}	
+}
+
 
 function toggleCreation() {
 	$('#exist').toggleClass('hidden');
@@ -71,7 +83,7 @@ $(document).ready(function() {
     	});
     	
     	$('#cadastrados').change(function(){
-    		validaAnimalExistente();
+    		validateAnimal();
     	});
     }
 
@@ -81,7 +93,7 @@ $(document).ready(function() {
 
     if($('#search-form').length) {
     	$('#animal_type').change(function(){
-    		changeSelects();
+    		changeSelectsSearch();
     	});
     }
 });

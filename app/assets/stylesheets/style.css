@@ -15,7 +15,7 @@ ul {
 	list-style: none;
 }
 .btn-principal {
-	background-color: #B046B2;
+	background-color: #8a26be;
 	color: #fff;
 	padding: 20px 25px;
     border-radius: 7px;
@@ -97,7 +97,7 @@ div.tooltip.top {
 	font-size: 16px;
 }
 .navbar-default .navbar-brand {
-	color: #B046B2;
+	color: #8a26be;
 }
 .principal {
 	height: 75vh;
@@ -229,4 +229,7 @@ div.tooltip.top {
 #map-canvas {
 	height: 500px;
 	width: 100%;
+}
+.area-map:hover {
+	background-color: red;
 }
