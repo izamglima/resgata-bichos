@@ -1,3 +1,5 @@
 function searchByState(id) {
-	console.log(id);
+	$('#state').val(id);
+	
+	$('#search-form').submit();
 }
