@@ -230,6 +230,21 @@ div.tooltip.top {
 	height: 500px;
 	width: 100%;
 }
-.area-map:hover {
-	background-color: red;
+.search-block {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.search-block label {
+	cursor: pointer;
+	padding: 15px;
+    width: 100%;
+    background-color: #eee;
+    color: #6AB2A6;
+    border-radius: 5px;
+}
+.search-block input {
+	display: none;
+}
+.search-block label.selected {
+	border: 1px solid #ccc;
 }

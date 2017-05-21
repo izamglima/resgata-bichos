@@ -12,12 +12,12 @@ class SearchsController < ApplicationController
 
 	def search_params
 		params.fetch(:search, {})
-			.permit(:state, :animal_type, :sex, :size, :color)
+			.permit(:state, :animal_type, :sex, :size, :color, :race, :age, :data_event, :status)
 	end
 
 	def dog_races
 		[
-			['Selecione uma raça', nil],
+			[' ', nil],
 			['Sem raça definida', 'Sem raça definida'],
 			['Affenpinscher', 'Affenpinscher'],
 			['Afghan Hound', 'Afghan Hound'],
@@ -167,7 +167,7 @@ class SearchsController < ApplicationController
 
 	def cat_races
 		[
-			['Selecione uma raça', nil],
+			[' ', nil],
 			['Sem raça definida', 'Sem raça definida'],
 			['Abissínio', 'Abissínio'],
 			['American Shorthair', 'American Shorthair'],
@@ -198,7 +198,7 @@ class SearchsController < ApplicationController
 
 	def ages
 		[
-			['Selecione uma idade', nil],
+			[' ', nil],
 			['Até 1 ano', 'Até 1 ano'],
 			['1', '1'],
 			['2','2'],
