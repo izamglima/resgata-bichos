@@ -1,50 +1,70 @@
 <%= form_for([animal, event]) do |f| %>
-  <% if event.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
-      <ul>
-      <% animal.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="select-images">
-    <a href="javascript:void(0)" class="link-md" id="exist" onclick="hideMapa();toggleCreation();">Digitar um endereço manualmente</a>
-    <div id="exist-container" class="hidden">
-      <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Usar localização atual</a>
-      <div class="field" data-toggle="tooltip"> 
-        <div class="field">
-          <%= f.label :address, "Endereço" %>
-          <%= f.text_field :address, class: "form-control", placeholder: 'Av. Comendador Aladino Selmi, 10, Campinas, SP' %>
+    <% if event.errors.any? %>
+        <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
+            <ul>
+            <% animal.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
         </div>
-      </div>
+    <% end %>
+    <div class="select-images">
+        <a href="javascript:void(0)" class="link-md" id="exist" onclick="hideMapa();toggleCreation();">Digitar um endereço manualmente</a>
+        <div id="exist-container" class="hidden">
+            <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Usar localização atual</a>
+            <div class="field" data-toggle="tooltip"> 
+                <div class="field">
+                    <%= f.label :address, "Endereço" %>
+                    <%= f.text_field :address, class: "form-control", placeholder: 'Av. Comendador Aladino Selmi, 10, Campinas, SP' %>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <div id="new">
-    <div id="map-canvas"></div>
-  </div>
-  <div class="field">
-    <%= f.label :data_event, "Data do evento" %>
-    <%= f.text_field :data_event, class: "form-control" %>
-  </div>
+    <div id="new">
+        <div id="map-canvas"></div>
+    </div>
+    <div class="field">
+        <%= f.label :data_event, "Data do evento" %>
+        <%= f.text_field :data_event, class: "form-control" %>
+    </div>
+    
+    <% if params[:status] != "undefined" %>
+        <%= f.hidden_field :status, value: params[:status] %>  
+    <% end %>
 
-  <%= f.hidden_field :status, value: params[:status] %>
-  <%= f.hidden_field :latitude %>
-  <%= f.hidden_field :longitude %>
+    <div class="no-parameter">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="search-block">
+                    <%= label_tag(:event_status_encontrado, "Encontrei o animal") %>
+                    <%= f.radio_button(:status, 'encontrado') %>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="search-block">
+                    <%= label_tag(:event_status_perdido, "Perdi o animal") %>
+                    <%= f.radio_button(:status, 'perdido') %>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <div class="field resolvido">
-    <%= f.label :resolved, "Resolvido" %>
-    <%= f.check_box :resolved, class: "form-control" %>
-  </div>
+    <%= f.hidden_field :latitude %>
+    <%= f.hidden_field :longitude %>
 
-  <div class="field">
-    <%= f.label :comment, "Detalhes do evento" %>
-    <%= f.text_area :comment, class: "form-control" %>
-  </div>
+    <div class="field resolvido">
+        <%= f.label :resolved, "Resolvido" %>
+        <%= f.check_box :resolved, class: "form-control" %>
+    </div>
 
-  <div class="actions"%>
-    <%= f.submit "Enviar", class: "btn-secundario" %>
-  </div>
+    <div class="field">
+        <%= f.label :comment, "Detalhes do evento" %>
+        <%= f.text_area :comment, class: "form-control" %>
+    </div>
+
+    <div class="actions"%>
+        <%= f.submit "Enviar", class: "btn-secundario" %>
+    </div>
 <% end %>

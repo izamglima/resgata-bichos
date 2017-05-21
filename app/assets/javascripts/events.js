@@ -14,5 +14,8 @@ $(document).ready(function() {
 		if (window.location.href.indexOf("cadastro") != -1) {
 			$('.final').removeClass('hidden');
 		}
+		if (window.location.href.indexOf("status") > -1 ) {
+    		//add status
+    	}
 	}
 });

@@ -1,4 +1,5 @@
 function validateform(){
+	console.log('aa');
 	var inputNome = $('#animal_name');
 	var inputCor = $('#animal_color');
 	var errors = [];
@@ -35,9 +36,10 @@ function validateform(){
 function validateAnimal(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
 	var myParam = location.search.split('status=')[1];
-	var url = window.location.hostname;
+	var url = window.location.href;
+    var hasLocalhost = window.location.href.indexOf("localhost") > -1 ;
 	$('#next').removeClass('hidden');
-	if(url === "localhost")
+	if(hasLocalhost)
 		$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
 	else
 		$('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
@@ -85,6 +87,7 @@ $(document).ready(function() {
     	$('#cadastrados').change(function(){
     		validateAnimal();
     	});
+    	
     }
 
     if ($('#notice').val() === "") {

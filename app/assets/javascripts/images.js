@@ -20,10 +20,11 @@ function validateform(){
 
 function validateImage(){
     var idAnimal = $('#cadastrados').find(":selected").val();
-    var url = window.location.hostname;
+    var url = window.location.href;
+    var hasLocalhost = window.location.href.indexOf("localhost") > -1 ;
     var myParam = location.search.split('status=')[1];
     $('#next').removeClass('hidden');
-    if(url === "localhost"){
+    if(hasLocalhost){
         $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
     }
     else {        
