@@ -1,5 +1,5 @@
 function validateform(){
-	console.log('aa');
+	aaa
 	var inputNome = $('#animal_name');
 	var inputCor = $('#animal_color');
 	var errors = [];
@@ -56,17 +56,6 @@ function changeSelects(){
 		$('#dogs-list').removeClass('hidden');
 	}
 }
-function changeSelectsSearch(){
-	var inputType = $('#animal_type');
-	if ($(inputType).val() == "Gato") {
-		$('#dogs-list').addClass('hidden');
-		$('#cats-list').removeClass('hidden');
-	}
-	if ($(inputType).val() == "Cão") {
-		$('#cats-list').addClass('hidden');
-		$('#dogs-list').removeClass('hidden');
-	}	
-}
 
 
 function toggleCreation() {
@@ -77,6 +66,7 @@ function toggleCreation() {
 }
 
 $(document).ready(function() {
+
     if($('#form-animal').length) {
     	$('#animal_age').mask('00');
 
@@ -92,11 +82,5 @@ $(document).ready(function() {
 
     if ($('#notice').val() === "") {
     	$('.alert').addClass('hidden');
-    }
-
-    if($('#search-form').length) {
-    	$('#animal_type').change(function(){
-    		changeSelectsSearch();
-    	});
     }
 });

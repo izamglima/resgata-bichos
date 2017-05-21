@@ -34,7 +34,7 @@
         <%= f.hidden_field :status, value: params[:status] %>  
     <% end %>
 
-    <div class="no-parameter">
+    <% if params[:status] == "undefined" %>
         <div class="row">
             <div class="col-md-6">
                 <div class="search-block">
@@ -49,7 +49,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    <% end %>
 
     <%= f.hidden_field :latitude %>
     <%= f.hidden_field :longitude %>
