@@ -11,14 +11,18 @@ class Animal < ApplicationRecord
 	has_many :events, dependent: :destroy
 
 	def self.search(search)
-	  scope = self.joins(:events)
+		scope = self
 
-	  scope = scope.where(animal_type: search[:animal_type]) if search[:animal_type].present?
-	  scope = scope.where(sex: search[:sex]) if search[:sex].present?
-	  scope = scope.where(size: search[:size]) if search[:size].present?
-	  scope = scope.where(color: search[:color]) if search[:color].present?
-	  scope = scope.where("events.address LIKE ?", "% #{search[:state].upcase}%") if search[:state].present?
+		if search[:state].present?
+		  scope = scope.joins(:events) 
+		  scope = scope.where("events.address LIKE ?", "% #{search[:state].upcase}%") 
+		end
 
-	  scope
+		scope = scope.where(animal_type: search[:animal_type]) if search[:animal_type].present?
+		scope = scope.where(sex: search[:sex]) if search[:sex].present?
+		scope = scope.where(size: search[:size]) if search[:size].present?
+		scope = scope.where(color: search[:color]) if search[:color].present?
+
+		scope
 	end
 end

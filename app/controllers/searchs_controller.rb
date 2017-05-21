@@ -5,7 +5,7 @@ class SearchsController < ApplicationController
 		@ages = ages
 		@state = search_params[:state]
 
-		@animals = Animal.search(search_params).order("created_at DESC")
+		@animals = Animal.search(search_params).all
 	end
 
 	private

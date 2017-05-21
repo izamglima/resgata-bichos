@@ -3,13 +3,10 @@
 <main>
   <section class="search">
     <div class="container">
-    	<h1>Procurar</h1>
+    	<h1>Procurar animais</h1>
 
     	<div class="col-md-4">
-    		<div class="textSearch">
-    			<h3>Selecione por estado </h3>
-    		</div>
-    		<div id="searchInputs" class="hidden">
+    		<div id="searchInputs">
     			<%= form_tag(search_path, :method => "get", id: "search-form", name: "search") do |f| %>
     				<%= hidden_field_tag(:state, @state, { name: 'search[state]' }) %>
 
@@ -60,12 +57,13 @@
 						<%= select_tag(:size, options_for_select([['Selecione um tamanho', nil], ['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']], params.dig(:search, :size)), { class: 'form-control', name: 'search[size]' })%>
 				  	</div>
 
-					<%= submit_tag "Search" %>
+					<%= submit_tag "Buscar" , class: "btn-secundario" %>
 				<% end %>
     		</div>
     	</div>
     	<% unless @state %>
     		<div class="col-md-8">
+    			<h3 class="text-right">Selecione por estado </h3>
     			<%= render('map') %>
     		</div>
 		<% end %>
@@ -74,7 +72,7 @@
 				<%= "#{animal.name} #{animal.animal_type} #{animal.sex} #{animal.size}"  %><br />
 			<% end %>
 		<% else %>
-		  <p>Arruma isso izabela, não existem "<%= params[:search].values.join(', ') %>".</p>
+		  <p>Arruma isso izabela, não existem "<%= params[:search] && params[:search].values.join(', ') %>".</p>
 		<% end %>
     </div>
  </section>
