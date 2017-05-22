@@ -15,19 +15,20 @@ class AnimalsController < ApplicationController
 
     # GET /animals/new
     def new
+        @dog_races = dog_races
+        @cat_races = cat_races
+        @ages = ages
         @animals = current_user.animals.all
         @animal = current_user.animals.new
-        @cat_races = cat_races
-        @dog_races = dog_races
-        @ages = ages
+        
     end
 
     # GET /animals/1/edit
     def edit
-        @animals = current_user.animals.all
-        @cat_races = cat_races
         @dog_races = dog_races
+        @cat_races = cat_races
         @ages = ages
+        @animals = current_user.animals.all
     end
 
     # POST /animals
@@ -41,6 +42,9 @@ class AnimalsController < ApplicationController
                 format.html { redirect_to new_animal_image_path(@animal, { status: params[:status] }), notice: 'Animal was successfully created.' }
                 format.json { render :show, status: :created, location: @animal }
             else
+                @dog_races = dog_races
+                @cat_races = cat_races
+                @ages = ages
                 format.html { render :new }
                 format.json { render json: @animal.errors, status: :unprocessable_entity }
             end
