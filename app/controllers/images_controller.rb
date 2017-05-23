@@ -37,6 +37,9 @@ class ImagesController < ApplicationController
         format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Image was successfully created.' }
         format.json { render :show, status: :created, location: @image }
       else
+        @animal = Animal.find(params[:animal_id])
+        @animal_images = @animal.images
+        @image = Image.new(animal: @animal)
         format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end

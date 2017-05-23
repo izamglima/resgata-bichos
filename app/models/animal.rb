@@ -1,4 +1,7 @@
 class Animal < ApplicationRecord
+	belongs_to :user
+	has_many :images, dependent: :destroy
+	has_many :events, dependent: :destroy
 	validates :name, presence: true
 	validates :color, presence: true
 	validates :race, presence: true
@@ -6,9 +9,6 @@ class Animal < ApplicationRecord
 	validates :age, presence: true
 	validates :size, presence: true
 	validates :animal_type, presence: true
-	belongs_to :user
-	has_many :images, dependent: :destroy
-	has_many :events, dependent: :destroy
 
 	def self.search(search)
 		scope = self

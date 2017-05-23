@@ -1,6 +1,7 @@
 <%= form_for([animal, image]) do |f| %>
   <% if image.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
       <ul>
       <% image.errors.full_messages.each do |message| %>
@@ -38,7 +39,7 @@
     </div>
     <%= hidden_field_tag :status, params[:status] %>
     <div class="actions">   
-      <%= f.submit "Enviar", class: "btn-secundario" , :onclick => "return validateform()"  %>
+      <%= f.submit "Enviar", class: "btn-secundario"  %>
     </div>
   </div>
 <% end %>

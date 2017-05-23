@@ -1,22 +1,3 @@
-function validateform(){
-    var inputImage = $('#image_image');
-    var errors = [];
-    if ($(inputImage).val() == "") {
-        $(inputImage).parent().tooltip({
-                    trigger: 'manual',
-                    title: 'Por favor, preencha o campo.',
-                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
-                    placement: 'top'
-                }).tooltip('show');
-        errors.push(1);
-        $(inputImage).on('change', function() {
-            $(inputImage).parent().tooltip('hide');
-        })
-    }
-    if (errors.length > 0)
-        return false;            
-    return true;
-}
 
 function validateImage(){
     var idAnimal = $('#cadastrados').find(":selected").val();
@@ -31,6 +12,21 @@ function validateImage(){
         $('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
     }
 }
+$('#new_image').submit(function(){ 
+    var inputImage = $('#image_image');
+    var errors = [];
+    if ($(inputImage).val() == "") {
+        callTollTip(inputImage);
+        
+        errors.push(1);
+        $(inputImage).on('change', function() {
+            $(inputImage).parent().tooltip('hide');
+        })
+    }
+    if (errors.length > 0)
+        return false;            
+    return true;
+});
 
 $(document).ready(function() {
     if($('#form-image').length) {

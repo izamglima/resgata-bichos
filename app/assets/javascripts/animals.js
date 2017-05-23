@@ -1,37 +1,3 @@
-function validateform(){
-	aaa
-	var inputNome = $('#animal_name');
-	var inputCor = $('#animal_color');
-	var errors = [];
-	if ($(inputNome).val() == "") {
-		$(inputNome).parent().tooltip({
-    				trigger: 'manual',
-                    title: 'Por favor, preencha o campo.',
-                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
-                    placement: 'top'
-    			}).tooltip('show');
-		errors.push(1);
-		$(inputNome).on('keyup', function() {
-			$(inputNome).parent().tooltip('hide');
-		})
-	}
-	if ($(inputCor).val() == "") {
-		$(inputCor).parent().tooltip({
-    				trigger: 'manual',
-                    title: 'Por favor, preencha o campo.',
-                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
-                    placement: 'top'
-    			}).tooltip('show');
-		errors.push(1);
-		$(inputCor).on('keyup', function() {
-			$(inputCor).parent().tooltip('hide');
-		})
-	}
-	
-	if (errors.length > 0)
-		return false;
-	return true;	
-}
 
 function validateAnimal(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
@@ -65,6 +31,50 @@ function toggleCreation() {
 	$('#exist-container').toggleClass('hidden');	
 }
 
+function callTollTip(input) {
+	$(input).parent().tooltip({
+		trigger: 'manual',
+        title: 'Por favor, preencha o campo.',
+        template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
+        placement: 'top'
+	}).tooltip('show');	
+}
+
+$('#new_animal').submit(function(){
+	var inputNome = $('#animal_name');
+	var inputCor = $('#animal_color');
+	var animalColor = $('#animal_color');
+	
+	var errors = [];
+	if ($(inputNome).val() == "") {
+		callTollTip(inputNome);
+		
+		errors.push(1);
+		$(inputNome).on('keyup', function() {
+			$(inputNome).parent().tooltip('hide');
+		})
+	}
+	if ($(inputCor).val() == "") {
+		callTollTip(inputCor);
+
+		errors.push(1);
+		$(inputCor).on('keyup', function() {
+			$(inputCor).parent().tooltip('hide');
+		})
+	}
+	if ($(animalColor).val() == "") {
+		callTollTip(animalColor);		
+		
+		errors.push(1);
+		$(animalColor).on('keyup', function() {
+			$(animalColor).parent().tooltip('hide');
+		})
+	}
+	if (errors.length > 0)
+		return false;
+	return true;	
+});
+
 $(document).ready(function() {
 
     if($('#form-animal').length) {
@@ -77,7 +87,6 @@ $(document).ready(function() {
     	$('#cadastrados').change(function(){
     		validateAnimal();
     	});
-    	
     }
 
     if ($('#notice').val() === "") {
