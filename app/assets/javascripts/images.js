@@ -16,12 +16,8 @@ $('#new_image').submit(function(){
     var inputImage = $('#image_image');
     var errors = [];
     if ($(inputImage).val() == "") {
-        $(inputImage).parent().tooltip({
-                    trigger: 'manual',
-                    title: 'Por favor, preencha o campo.',
-                    template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
-                    placement: 'top'
-                }).tooltip('show');
+        callTollTip(inputImage);
+        
         errors.push(1);
         $(inputImage).on('change', function() {
             $(inputImage).parent().tooltip('hide');

@@ -39,6 +39,7 @@ class ImagesController < ApplicationController
       else
         @animal = Animal.find(params[:animal_id])
         @animal_images = @animal.images
+        @image = Image.new(animal: @animal)
         format.html { render :new }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
