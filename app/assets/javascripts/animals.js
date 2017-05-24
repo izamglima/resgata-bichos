@@ -35,7 +35,10 @@ function callTollTip(input) {
 	$(input).parent().tooltip({
 		trigger: 'manual',
         title: 'Por favor, preencha o campo.',
-        template: '<div class="tooltip" role="tooltip"><div class="tooltip-arrow fail"></div><div class="tooltip-inner fail"></div></div>',
+        template: '<div class="tooltip" role="tooltip">'+
+        		  	'<div class="tooltip-arrow fail">'+
+        		  '</div>'+
+        		  '<div class="tooltip-inner fail"></div></div>',
         placement: 'top'
 	}).tooltip('show');	
 }
