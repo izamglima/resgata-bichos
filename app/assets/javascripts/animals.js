@@ -3,12 +3,13 @@ function validateAnimal(){
 	var idAnimal = $('#cadastrados').find(":selected").val();
 	var myParam = location.search.split('status=')[1];
 	var url = window.location.href;
+	var host = window.location.host;
     var hasLocalhost = window.location.href.indexOf("localhost") > -1 ;
 	$('#next').removeClass('hidden');
 	if(hasLocalhost)
 		$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
 	else
-		$('#next').attr('href', url+'/animals/'+idAnimal+'/images/new?status='+myParam);
+		$('#next').attr('href', host+'/animals/'+idAnimal+'/images/new?status='+myParam);
 }	
 
 function changeSelects(){
