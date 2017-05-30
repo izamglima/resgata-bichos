@@ -49,9 +49,9 @@
     <div class="separator"></div>
     <div class="row">
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <h3>
-        mapa
-        </h3>
+        
+        <h3>mapa</h3>
+        <div id="mapholder"></div>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12 box-events">
         <h3>Eventos</h3>
@@ -69,6 +69,8 @@
             <li>
               <p><%= event.comment %></p>
             </li>
+            <input type="hidden" name="latitude" id="lat" value="<%= event.latitude %>">
+            <input type="hidden" name="longitude" id="long" value="<%= event.longitude %>">
           <% end %>
         </ul>
       </div>

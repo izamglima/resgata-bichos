@@ -41,8 +41,34 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
                         'Error: Your browser doesn\'t support geolocation.');
 }
 
-$(document).on('turbolinks:load', function() {
-  if (window.google && window.google.maps) {
+function showPosition() {
+  var element = document.getElementById('mapholder');
+  
+  if (!element) {
+    return false;
+  }
+
+  var latitude = $('#lat').val();
+  var longitude = $('#long').val();
+  
+  var map = new google.maps.Map(element, {
+    center: {lat: parseFloat(latitude), lng: parseFloat(longitude)},
+    zoom: 16
+  });
+  var infoWindow = new google.maps.InfoWindow({map: map});
+  var pos = {
+    lat: parseFloat(latitude),
+    lng: parseFloat(longitude)
+  };
+  infoWindow.setPosition(pos);
+  infoWindow.setContent('Localização do evento do animal');
+}
+
+$(document).ready(function() {
+  if ($('.new_event').length > 0) {
     initMap();
   };
+  if($('.show-animal').length > 0) {
+    showPosition()
+  }
 });

@@ -12,7 +12,15 @@
 			<% end %>
 			<% if @animals.present? %>
 				<% @animals.each do |animal| %>
-				<%= "#{animal.name} #{animal.id} #{animal.animal_type} #{animal.sex} #{animal.size}"  %><br />
+					<div class="col-md-4 col">
+					<%= link_to animal, class: "box-search-animals" do %>
+						
+						<p><%= "#{animal.name} #{animal.id} "  %></p>
+						<p><%= "#{animal.animal_type} " %> </p>
+						<p><%= "#{animal.sex} " %> </p>
+						<p></p>
+					<% end %>
+					</div>
 			<% end %>
 			<% else %>
 	  			<p>Sua busca não retornou nenhum resultado.</p>
