@@ -230,6 +230,9 @@ div.tooltip.top {
 	height: 500px;
 	width: 100%;
 }
+#mapholder {
+	height: 400px;
+}
 .search-block {
     text-align: center;
     margin-bottom: 20px;
