@@ -9,7 +9,7 @@ function validateAnimal(){
 	if(hasLocalhost)
 		$('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/images/new?status='+myParam);
 	else
-		$('#next').attr('href', host+'/animals/'+idAnimal+'/images/new?status='+myParam);
+		$('#next').attr('href', '/animals/'+idAnimal+'/images/new?status='+myParam);
 }	
 
 function changeSelects(){
