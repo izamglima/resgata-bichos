@@ -11,4 +11,18 @@
 	section.como-funciona {
 		height: auto;
 	}
+	.principal-texto {
+		text-shadow: 1px 1px 1px #3b3b3b;
+	}
+	.steps-cadastro ol li {
+		font-size: 12px;
+	}
+	div.progress-bar {
+		font-size: 11px;
+	}
+	div.form-container {
+		margin-top: 10px;
+		padding-top: 10px;
+		margin-bottom: 30px;
+	}
 }
