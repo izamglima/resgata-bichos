@@ -25,4 +25,7 @@
 		padding-top: 10px;
 		margin-bottom: 30px;
 	}
+	div.card-animals-container {
+		padding: 20px;
+	}
 }

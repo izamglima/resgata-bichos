@@ -30,15 +30,16 @@
               <p>Nome: <%= animal.name %></p>
               <p>Gênero: <%= animal.sex %></p>
               <p>Idade: <%= animal.age %></p>
-
-              <div class="col-md-4 col-sm-4 col-xs-12 links">
-                <%= link_to 'Deletar', animal, method: :delete, data: { confirm: 'Você tem certeza? Ao deletar um animal você irá excluir suas fotos e os eventos cadastrados.' } %>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-12 links">
-                <%= link_to 'Editar', edit_animal_path(animal) %>
-              </div>
-              <div class="col-md-4 col-sm-4 col-xs-12 links">
-                <%= link_to 'Exibir', animal %>
+              <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-4 links">
+                  <%= link_to 'Deletar', animal, method: :delete, data: { confirm: 'Você tem certeza? Ao deletar um animal você irá excluir suas fotos e os eventos cadastrados.' } %>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 links">
+                  <%= link_to 'Editar', edit_animal_path(animal) %>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-4 links">
+                  <%= link_to 'Exibir', animal %>
+                </div>
               </div>
             </div>
           </div>
