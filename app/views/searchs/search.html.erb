@@ -5,29 +5,6 @@
     <div class="container">
     	<h1>Procurar animais</h1>
     	
-		<div class="col-md-8">
-    		<% unless @state %>
-    			<h3>Selecione por estado </h3>
-    			<%= render('map') %>
-			<% end %>
-			<% if @animals.present? %>
-				<% @animals.each do |animal| %>
-					<div class="col-md-4 col">
-					<%= link_to animal, class: "box-search-animals" do %>
-						
-						<p><%= "#{animal.name} #{animal.id} "  %></p>
-						<p><%= "#{animal.animal_type} " %> </p>
-						<p><%= "#{animal.sex} " %> </p>
-						<p></p>
-					<% end %>
-					</div>
-			<% end %>
-			<% else %>
-	  			<p>Sua busca não retornou nenhum resultado.</p>
-			<% end %>
-		</div>
-
-		
     	<div class="col-md-4">
     	<h3>Filtros </h3>
     		<div id="searchInputs">
@@ -100,14 +77,35 @@
 				  		<%= label_tag :data_event, "Data do evento" %>	
 				  		<%= text_field_tag(:data_event, params.dig(:search, :data_event), { class: 'form-control', name: 'search[data_event]', placeholder: '00/00/0000' })%>
 				  	</div>
-				  	
 
 					<%= submit_tag "Buscar" , class: "btn-secundario" %>
 				<% end %>
     		</div>
     	</div>
 
-		
+		<div class="col-md-8">
+    		<% unless @state %>
+    			<h3 class="hidden-xs">Selecione por estado </h3>
+    			<%= render('map') %>
+			<% end %>
+			<% if @animals.present? %>
+				<div class="row">
+					<% @animals.each do |animal| %>				
+						<div class="col-md-4 col-sm-3 col-xs-6">
+						<%= link_to animal, class: "box-search-animals" do %>
+							
+							<p><%= "#{animal.name} #{animal.id} "  %></p>
+							<p><%= "#{animal.animal_type} " %> </p>
+							<p><%= "#{animal.sex} " %> </p>
+							<p></p>
+						<% end %>
+						</div>
+					<% end %>	
+				</div>
+			<% else %>
+	  			<p>Sua busca não retornou nenhum resultado.</p>
+			<% end %>
+		</div>
     </div>
  </section>
 </main> 
