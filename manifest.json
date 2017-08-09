@@ -1,0 +1,102 @@
+{
+    "dir": "ltr",
+    "lang": "pt",
+    "name": "Resgata Bichos - Ajuda colaborativa para o resgate de animais perdidos, encontrados e doações",
+    "scope": "/",
+    "display": "browser",
+    "start_url": "https://thawing-dusk-93213.herokuapp.com/",
+    "short_name": "Resgata Bichos ",
+    "theme_color": "transparent",
+    "description": "Resgata Bichos - Para quem perdeu ou encontrou um animal",
+    "orientation": "any",
+    "background_color": "transparent",
+    "related_applications": [],
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "vendor/assets/images/f8aaf001-84c9-19c6-f578-0854c2b6ba23.webPlatform.png",
+            "sizes": "48x48",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/fc47fdd5-c561-2e91-7e9e-24bacea1a2c0.webPlatform.png",
+            "sizes": "1240x600",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/5347090f-8ea6-6853-131c-1dea0f911e19.webPlatform.png",
+            "sizes": "300x300",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/d320e323-87d6-8345-a421-3131e486646f.webPlatform.png",
+            "sizes": "88x88",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/a4a4ee8b-a191-0690-eed9-ce1b0a1eff9d.webPlatform.png",
+            "sizes": "24x24",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/8dbd80f3-ca94-0296-c84d-e9fb3a5a3b59.webPlatform.png",
+            "sizes": "50x50",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/b34449e7-8d39-9269-ea66-1e1f69941141.webPlatform.png",
+            "sizes": "620x300",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/caa244c7-c0b5-26df-6699-03cf80b6b74d.webPlatform.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/d589ad59-96d1-313b-8d9f-af8a70eded66.webPlatform.png",
+            "sizes": "144x144",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/c42a4a7c-375c-e910-6c59-a4f53d0144ca.webPlatform.png",
+            "sizes": "96x96",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/500a9c09-d9cc-ce48-d655-78eddbb337c1.webPlatform.png",
+            "sizes": "72x72",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/46ae73d4-2385-ee90-c11a-f5376cb82251.webPlatform.png",
+            "sizes": "36x36",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/8fc44808-72b1-8107-3138-c2e6a4c4922f.webPlatform.png",
+            "sizes": "1024x1024",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/ddb021f9-c3cb-bc8c-d297-73afee5f341a.webPlatform.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/5fd73036-7d59-101d-8feb-e220684ecb6e.webPlatform.png",
+            "sizes": "152x152",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/82d08c4d-8cf0-c3c2-ddd0-7792f8343233.webPlatform.png",
+            "sizes": "120x120",
+            "type": "image/png"
+        },
+        {
+            "src": "vendor/assets/images/b2a988fe-735c-cfbc-6901-3526d22927d0.webPlatform.png",
+            "sizes": "76x76",
+            "type": "image/png"
+        }
+    ]
+}
