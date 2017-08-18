@@ -4,7 +4,7 @@
     "name": "Resgata Bichos",
     "scope": "/",
     "display": "browser",
-    "start_url": "https://resgatabichos.herokuapp.com/",
+    "start_url": "/",
     "short_name": "Resgata Bichos",
     "theme_color": "transparent",
     "description": "Ajuda colaborativa para o resgate de animais perdidos, encontrados e doações",
