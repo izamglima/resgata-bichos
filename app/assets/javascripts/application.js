@@ -15,3 +15,4 @@
 //= require bootstrap.min
 //= require jquery.mask.min
 //= require_tree .
+//= require serviceworker-companion

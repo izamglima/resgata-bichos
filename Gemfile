@@ -33,6 +33,9 @@ gem 'aws-sdk'
 # GEOCoder for manipulate data from maps
 gem 'geocoder'
 
+#pwa with rails
+gem "serviceworker-rails"
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
