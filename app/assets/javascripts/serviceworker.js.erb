@@ -1,6 +1,7 @@
-var CACHE_VERSION = 'v1';
+var CACHE_VERSION = 'v1:';
 var CACHE_NAME = CACHE_VERSION + ':sw-cache-';
 
+//versão estática do site
 function onInstall(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function prefill(cache) {
