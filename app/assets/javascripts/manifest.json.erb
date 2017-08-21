@@ -1,7 +1,8 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
-  "name": "My Progressive Rails App",
-  "short_name": "Progressive",
+  "name": "Resgata Bichos",
+  "short_name": "Resgata Bichos",
+  "description": "Ajuda colaborativa para o resgate de animais perdidos, encontrados e doações",
   "start_url": "/",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
@@ -12,7 +13,7 @@
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
   <% end %>
   ],
-  "theme_color": "#000000",
+  "theme_color": "#8a26be",
   "background_color": "#FFFFFF",
   "display": "fullscreen",
   "orientation": "portrait"
