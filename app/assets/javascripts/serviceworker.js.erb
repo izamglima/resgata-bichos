@@ -37,7 +37,6 @@ function onActivate(event) {
   );
 }
 
-// Borrowed from https://github.com/TalAter/UpUp
 function onFetch(event) {
   event.respondWith(
     // try to return untouched request from network first
@@ -60,3 +59,13 @@ function onFetch(event) {
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
+self.addEventListener('push', function(event) {
+  event.waitUntil(
+    self.registration.showNotification('serviceworker Laalala', {
+      lang: 'pt-br',
+      body: 'Alalala',
+      icon: '',
+      vibrate: [500, 100, 500],   
+    })
+  );
+});
