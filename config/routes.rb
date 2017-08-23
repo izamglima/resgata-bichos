@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   get '/search' =>'searchs#search'
+
+  get '/.well-known/acme-challenge/:id' => 'welcome#letsencrypt'
+  
 end
