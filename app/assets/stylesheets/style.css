@@ -228,7 +228,7 @@ div.tooltip.top {
 	width: 100%;
 	padding: 10px 0;
 }
-#map-canvas {
+#map-canvas, #map-search {
 	height: 500px;
 	width: 100%;
 }
