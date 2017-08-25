@@ -1,7 +1,13 @@
 function hideMapa(){
-	$('#map-canvas').remove();
+	$('#map-canvas').hide();
 	$('#event_latitude').val(null);
 	$('#event_longitude').val(null);
+}
+
+function showMapa() {
+    $('#map-canvas').show();
+    initMap();
+    showPosition();
 }
 
 $('#new_event').submit(function(){ 
@@ -41,4 +47,5 @@ $(document).ready(function() {
 			$('.final').removeClass('hidden');
 		}
 	}
+    $('[data-toggle="popover"]').popover();
 });

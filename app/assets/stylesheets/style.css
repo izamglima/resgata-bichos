@@ -259,3 +259,8 @@ div.tooltip.top {
 .progress {
 	width: 100%;
 }
+.btn-tooltip {
+	padding: 3px 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+}

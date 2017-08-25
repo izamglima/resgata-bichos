@@ -61,7 +61,7 @@ function showPosition() {
     lng: parseFloat(longitude)
   };
   infoWindow.setPosition(pos);
-  infoWindow.setContent('Localização do evento do animal');
+  infoWindow.setContent('Localização do animal');
 }
 
 $(document).ready(function() {

@@ -13,10 +13,13 @@
     <div class="select-images">
         <a href="javascript:void(0)" class="link-md" id="exist" onclick="hideMapa();toggleCreation();">Digitar um endereço manualmente</a>
         <div id="exist-container" class="hidden">
-            <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Usar localização atual</a>
+            <a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();showMapa()">Usar localização atual</a>
             <div class="field" data-toggle="tooltip"> 
                 <div class="field">
                     <%= f.label :address, "Endereço" %>
+                    <button type="button" class="btn btn-tooltip" data-container="body" data-toggle="popover" data-placement="right" data-content="Exemplo de formato de endereço:  Av. Comendador Aladino Selmi, 10, Campinas, SP ">
+                    ?  
+                    </button>
                     <%= f.text_field :address, class: "form-control", placeholder: 'Av. Comendador Aladino Selmi, 10, Campinas, SP' %>
                 </div>
             </div>
