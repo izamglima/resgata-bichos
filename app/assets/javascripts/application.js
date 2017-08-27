@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require bootstrap.min
 //= require jquery.mask.min
+//= require axios/dist/axios
 //= require_tree .
 //= require serviceworker-companion

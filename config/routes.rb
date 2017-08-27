@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    resources :search
+  end
   
   resources :animals do
   	resources :images

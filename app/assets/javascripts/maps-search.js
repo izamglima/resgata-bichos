@@ -1,25 +1,15 @@
-var markersData = [
-  {
-      lat: 40.6386333,
-      lng: -8.745,
-      nome: "Parque de Campismo Praia da Barra",
-      morada1:"Rua Diogo Cão, 125"
-   },
-   {
-      lat: 40.59955,
-      lng: -8.7498167,
-      nome: "Parque de Campismo da Costa Nova",
-      morada1:"Quinta dos Patos, n.º 2"
-   },
-   {
-      lat: 40.6247167,
-      lng: -8.7129167,
-      nome: "Parque de Campismo da Gafanha da Nazaré",
-      morada1:"Rua dos Balneários do Complexo Desportivo"
-   } // não colocar vírgula no último marcador
-];
+var eventoData;
+//Esta promise espera a api retornar os dados para então alimentar o array da variável eventoData
+axios('/api/search').then(function(response) { 
 
-// Esta função vai percorrer a informação contida na variável markersData
+  eventoData = response.data.map(function(evento) {
+    return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, id: evento.id};
+  });
+  //chamada do mapa
+  initialize();
+
+});
+// Esta função vai percorrer a informação contida na variável eventoData
 // e cria os marcadores através da função createMarker
 function displayMarkers(){
 
@@ -27,15 +17,16 @@ function displayMarkers(){
    // de acordo com as posições dos marcadores
    var bounds = new google.maps.LatLngBounds();
 
-   // Loop que vai percorrer a informação contida em markersData 
+   // Loop que vai percorrer a informação contida em eventoData 
    // para que a função createMarker possa criar os marcadores 
-   for (var i = 0; i < markersData.length; i++){
+   for (var i = 0; i < eventoData.length; i++){
 
-      var latlng = new google.maps.LatLng(markersData[i].lat, markersData[i].lng);
-      var nome = markersData[i].nome;
-      var morada1 = markersData[i].morada1;
+      var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
+      var nome = eventoData[i].nome;
+      var status = eventoData[i].status;
+      var id = eventoData[i].id;
 
-      createMarker(latlng, nome, morada1);
+      createMarker(latlng, nome, status, id);
 
       // Os valores de latitude e longitude do marcador são adicionados à
       // variável bounds
@@ -50,7 +41,7 @@ function displayMarkers(){
 }
 
 // Função que cria os marcadores e define o conteúdo de cada Info Window.
-function createMarker(latlng, nome, morada1){
+function createMarker(latlng, nome, status, id){
    var marker = new google.maps.Marker({
       map: map,
       position: latlng,
@@ -64,7 +55,8 @@ function createMarker(latlng, nome, morada1){
       // Variável que define a estrutura do HTML a inserir na Info Window.
       var iwContent = '<div id="iw_container">' +
       '<div class="iw_title">' + nome + '</div>' +
-      '<div class="iw_content">' + morada1 + '</div></div>';
+      '<div class="iw_title">' + id + '</div>' +
+      '<div class="iw_content">' + status + '</div></div>';
       
       // O conteúdo da variável iwContent é inserido na Info Window.
       infoWindow.setContent(iwContent);
@@ -75,9 +67,8 @@ function createMarker(latlng, nome, morada1){
 }
 
 function initialize() {
-  
    var mapOptions = {
-      center: new google.maps.LatLng(40.601203,-8.668173),
+      center: new google.maps.LatLng(-22.8533142,-47.1294165),
       zoom: 9,
       mapTypeId: 'roadmap',
    };
@@ -97,12 +88,3 @@ function initialize() {
   // contida na variável markersData e criar os marcadores a mostrar no mapa
   displayMarkers();
 }
-
-$(document).ready(function() {
-  if ($('.search').length > 0) {
-    //initMapSearch();
-    //google.maps.event.addDomListener(window, 'load', initialize);
-    initialize();
-  };
-});
-
