@@ -3,12 +3,12 @@ if ($('.search').length > 0) {
 	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventoData
 	axios('/api/search').then(function(response) { 
 
-	  eventoData = response.data.map(function(evento) {
-	    return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, id: evento.id};
-	  });
+		eventoData = response.data.map(function(evento) {
+		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name};
+	});
 	  
-	  //chamada do mapa
-	  initialize();
+	//chamada do mapa
+	initialize();
 
 	});    
 };
@@ -20,11 +20,11 @@ function displayPins(){
     //percorre o eventoData e cria marcadores com o conteúdo
 	for (var i = 0; i < eventoData.length; i++){
 		var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
-		var nome = eventoData[i].nome;
+		var nome = eventoData[i].name;
 		var status = eventoData[i].status;
-		var id = eventoData[i].id;
+		var address = eventoData[i].address;
 
-		createPins(latlng, nome, status, id);
+		createPins(latlng, nome, status, address);
 
 		// Os valores de latitude e longitude do marcador são adicionados à
 		// variável bounds
@@ -36,7 +36,7 @@ function displayPins(){
 }
 
 // cria e define o conteúdo dos marcadores
-function createPins(latlng, nome, status, id){
+function createPins(latlng, nome, status, address){
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
@@ -49,7 +49,7 @@ function createPins(latlng, nome, status, id){
 		// Variável que define a estrutura do HTML a inserir na Info Window.
 		var infoContent = '<div id="container-infos">' +
 		'<div class="title-info">' + nome + '</div>' +
-		'<div class="title-info">' + id + '</div>' +
+		'<div class="title-info">' + address + '</div>' +
 		'<div class="content-info">' + status + '</div></div>';
 
 		// seta o conteúdo da infoContent
