@@ -6,6 +6,7 @@ if ($('.search').length > 0) {
 	  eventoData = response.data.map(function(evento) {
 	    return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, id: evento.id};
 	  });
+	  
 	  //chamada do mapa
 	  initialize();
 
