@@ -14,6 +14,16 @@ a:hover {
 ul {
 	list-style: none;
 }
+footer {
+	border-top: 1px dotted #777;
+}
+.link-green {
+	color: #6AB2A6;
+}
+.height-50 {
+	padding-top: 25px;
+	padding-bottom: 25px; 
+}
 .btn-principal {
 	background-color: #8a26be;
 	color: #fff;
@@ -228,7 +238,14 @@ div.tooltip.top {
 	width: 100%;
 	padding: 10px 0;
 }
-#map-canvas, #map-search {
+.search {
+	margin-bottom: 35px;
+}
+#map-search {
+	height: 650px;
+	width: 100%;	
+}
+#map-canvas {
 	height: 500px;
 	width: 100%;
 }
