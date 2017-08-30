@@ -8,27 +8,29 @@ if ($('.search').length > 0) {
 	});
 	  
 	//chamada do mapa
-	initialize();
+	initialize("todos");
 
 	});    
 };
 
-function displayPins(){
-   // define a área de mapa a exibir
-   var bounds = new google.maps.LatLngBounds();
+function displayPins(filter){
+    // define a área de mapa a exibir
+    var bounds = new google.maps.LatLngBounds();
 
     //percorre o eventoData e cria marcadores com o conteúdo
 	for (var i = 0; i < eventoData.length; i++){
-		var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
-		var nome = eventoData[i].name;
+		
 		var status = eventoData[i].status;
-		var address = eventoData[i].address;
+		if (filter == status || filter == "todos") {
+			var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
+			var nome = eventoData[i].name;
+			var address = eventoData[i].address;
 
-		createPins(latlng, nome, status, address);
-
+			createPins(latlng, nome, status, address);
 		// Os valores de latitude e longitude do marcador são adicionados à
 		// variável bounds
 		bounds.extend(latlng); 
+		}
 	}
 
    // Aqui a API redefine o nível do zoom de acordo com as posições passadas dos casos registrados
@@ -60,7 +62,7 @@ function createPins(latlng, nome, status, address){
    });
 }
 
-function initialize() {
+function initialize(filter) {
 	var mapOptions = {
 		center: new google.maps.LatLng(-22.8533142,-47.1294165),
 		zoom: 12,
@@ -76,5 +78,5 @@ function initialize() {
 	});
 
 	// Chamada para a função que vai percorrer as informações do eventoData e criar os pins no mapa
-	displayPins();
+	displayPins(filter);
 }
