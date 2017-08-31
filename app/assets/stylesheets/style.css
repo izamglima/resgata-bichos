@@ -281,3 +281,29 @@ div.tooltip.top {
     margin-bottom: 10px;
     background-color: #eee;
 }
+.fix-img {
+	margin-top: 46px;
+}
+.adote {
+	background: #6AB2A6;
+	padding: 30px 0;
+}
+.adote h3 {
+	color: #ffffff;
+	padding-bottom: 30px;
+	font-size: 28px;
+}
+.adote p {
+	padding: 0 50px;
+	color: #ffffff;
+	font-size: 16px;
+	text-align: justify;
+	line-height: 25px;
+}
+.adote p::first-letter { 
+    font-size: 200%;
+}
+.adote img {
+	box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.57);
+    border: 1px dotted #fff;
+}
