@@ -193,14 +193,13 @@ div.tooltip.top {
 	padding-top: 5px;
 }
 .show-animal-container {
-	border: 1px solid #eeeeee;
 	padding: 20px 0;
 	margin-top: 30px;
 }
 .show-animal-container p {
 	display: inline-block;
 }
-.show-animal-container h3 {
+.show-animal-container h4 {
 	display: inline-block;
 }
 .show-animal-container ul {
@@ -211,11 +210,7 @@ div.tooltip.top {
 .show-animal-container li {
 	display: inline-block;
 }
-.show-animal {
-	background-color: #F2F0F2;
-}
 .show-animal .box-img {
-	background-color: #ffffff;
 	text-align: center;
 }
 .show-animal .box-img ul {
@@ -232,7 +227,6 @@ div.tooltip.top {
 }
 .show-animal .box-events li {
 	display: block;
-	border-bottom: 1px solid #cccccc;
 }
 .separator {
 	width: 100%;
