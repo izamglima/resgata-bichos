@@ -4,7 +4,7 @@ if ($('.search').length > 0) {
 	axios('/api/search').then(function(response) { 
 
 		eventoData = response.data.map(function(evento) {
-		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name};
+		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id: evento.animal_id};
 	});
 	  
 	//chamada do mapa
@@ -25,8 +25,9 @@ function displayPins(filter){
 			var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
 			var nome = eventoData[i].name;
 			var address = eventoData[i].address;
+			var id = eventoData[i].id;
 
-			createPins(latlng, nome, status, address);
+			createPins(latlng, nome, status, address, id);
 		// Os valores de latitude e longitude do marcador são adicionados à
 		// variável bounds
 		bounds.extend(latlng); 
@@ -38,7 +39,7 @@ function displayPins(filter){
 }
 
 // cria e define o conteúdo dos marcadores
-function createPins(latlng, nome, status, address){
+function createPins(latlng, nome, status, address, id){
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
@@ -52,7 +53,8 @@ function createPins(latlng, nome, status, address){
 		var infoContent = '<div id="container-infos">' +
 		'<div class="title-info">' + nome + '</div>' +
 		'<div class="title-info">' + address + '</div>' +
-		'<div class="content-info">' + status + '</div></div>';
+		'<div class="content-info">' + status + '</div></div>'+
+		'<div class="content-info"><a class="link-green" href="animals/' + id + '">Ver caso</a>' + '</div></div>';
 
 		// seta o conteúdo da infoContent
 		infos.setContent(infoContent);
