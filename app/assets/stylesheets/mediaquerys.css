@@ -28,4 +28,8 @@
 	div.card-animals-container {
 		padding: 20px;
 	}
+	.adote img {
+		margin: 0 auto;
+		margin-bottom: 20px;
+	}
 }
