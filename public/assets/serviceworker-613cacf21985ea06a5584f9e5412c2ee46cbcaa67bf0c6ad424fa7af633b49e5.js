@@ -9,9 +9,9 @@ function onInstall(event) {
 
         // make sure serviceworker.js is not required by application.js
         // if you want to reference application.js from here
-        '<%#= asset_path "application.js" %>',
+        '',
 
-        '<%#= asset_path "application.css" %>',
+        '/assets/application-58d360f33396f695797a98ab018331d37b44e3dd72b687c85765b3411871b98a.css',
 
         '/offline.html',
 
@@ -52,7 +52,7 @@ function onFetch(event) {
     })
   );
 }
-/*
+
 self.addEventListener('install', onInstall);
 self.addEventListener('activate', onActivate);
 self.addEventListener('fetch', onFetch);
@@ -62,4 +62,3 @@ self.addEventListener('notificationclose', function(e) {
 
   console.log('Closed notification: ' + primaryKey);
 });
-*/

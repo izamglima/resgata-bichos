@@ -9,9 +9,9 @@ function onInstall(event) {
 
         // make sure serviceworker.js is not required by application.js
         // if you want to reference application.js from here
-        '<%#= asset_path "application.js" %>',
+        '',
 
-        '<%#= asset_path "application.css" %>',
+        '',
 
         '/offline.html',
 
@@ -63,3 +63,4 @@ self.addEventListener('notificationclose', function(e) {
   console.log('Closed notification: ' + primaryKey);
 });
 */
+;
