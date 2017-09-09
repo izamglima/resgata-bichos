@@ -1,18 +1,18 @@
 //Register the ServiceWorker
-if (navigator.serviceWorker) {
-	if (navigator.serviceWorker.controller) {
-		console.log('[PWA Builder] active service worker found, no need to register')
-	} else {
-		navigator.serviceWorker.register('/serviceworker.js', { scope: './' })
-    	.then(function(reg) {
-			console.log('Service Worker registration sucessful!');
-  		})
-	}
-}
+// if (navigator.serviceWorker) {
+// 	if (navigator.serviceWorker.controller) {
+// 		console.log('[PWA Builder] active service worker found, no need to register')
+// 	} else {
+// 		navigator.serviceWorker.register('/serviceworker.js', { scope: './' })
+//     	.then(function(reg) {
+// 			console.log('Service Worker registration sucessful!');
+//   		})
+// 	}
+// }
 
-Notification.requestPermission(function(status) {
-  console.log('Notification permission status:', status);
-});
+// Notification.requestPermission(function(status) {
+//   console.log('Notification permission status:', status);
+// });
 
 // if (Notification.permission == 'granted') {
 //   navigator.serviceWorker.getRegistration().then(function(reg) {
