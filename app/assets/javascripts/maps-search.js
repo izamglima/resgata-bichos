@@ -54,7 +54,7 @@ function createPins(latlng, nome, status, address, id){
 		'<div class="title-info">' + nome + '</div>' +
 		'<div class="title-info">' + address + '</div>' +
 		'<div class="content-info">' + status + '</div></div>'+
-		'<div class="content-info"><a class="link-green" href="animals/' + id + '">Ver caso</a>' + '</div></div>';
+		'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + id + '">Ver caso</a>' + '</div></div>';
 
 		// seta o conteúdo da infoContent
 		infos.setContent(infoContent);
