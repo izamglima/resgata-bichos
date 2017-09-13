@@ -16,5 +16,7 @@ module ResgataBichos
 		storage: :s3,
 		s3_host_name: "us-west-2.amazonaws.com"                
 	}
+	gmail_username= ENV['GMAIL_USERNAME']
+	gmail_password=  ENV['GMAIL_PASSWORD']
   end
 end
