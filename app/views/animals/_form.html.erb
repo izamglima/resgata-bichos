@@ -72,6 +72,8 @@
 			<%= f.select(:size, [['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']], {}, { class: 'form-control'}) %>
 	  </div>
 
+	  <%= hidden_field(:status, params[:status]) %>
+
 	  <div class="actions">
 		<%= f.submit "Enviar", class: "btn-secundario" %>
 	  </div>
