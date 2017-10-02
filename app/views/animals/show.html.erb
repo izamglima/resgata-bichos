@@ -77,7 +77,11 @@
                 </div>
             </div>
             <div class="separator"></div>
-            <%= link_to 'Editar', edit_animal_path(@animal) %> |
+            <% unless current_user.blank? %>
+                <% if (@animal.user_id == current_user.id) %>
+                    <%= link_to 'Editar', edit_animal_path(@animal) %> |
+                <% end %>    
+            <% end %>
             <%= link_to 'Voltar', animals_path %>
         </div>  
     </section>

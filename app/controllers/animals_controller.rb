@@ -1,6 +1,7 @@
 class AnimalsController < ApplicationController
     before_action :set_animal, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!, except: [:show]
+    before_filter :require_permission, only: [:edit, :destroy]
 
     # GET /animals
     # GET /animals.json
@@ -88,6 +89,12 @@ class AnimalsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
         params.require(:animal).permit(:name, :race, :color, :animal_type, :sex, :age, :size)
+    end
+
+    def require_permission
+      if current_user != Animal.find(params[:id]).user
+        redirect_to root_path
+      end
     end
 
     def dog_races
