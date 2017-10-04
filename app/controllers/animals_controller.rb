@@ -21,6 +21,7 @@ class AnimalsController < ApplicationController
         @ages = ages
         @animals = current_user.animals.all
         @animal = current_user.animals.new
+        @status_animal = params[:status]
         
     end
 

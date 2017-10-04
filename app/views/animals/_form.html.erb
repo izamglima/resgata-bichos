@@ -72,7 +72,7 @@
 			<%= f.select(:size, [['Pequeno', 'Pequeno'], ['Médio', 'Médio'], ['Grande', 'Grande']], {}, { class: 'form-control'}) %>
 	  </div>
 
-	  <%= hidden_field(:status, params[:status]) %>
+	  <input type="hidden" id="status_animal" name="status" value="<%= @status_animal %>">	  
 
 	  <div class="actions">
 		<%= f.submit "Enviar", class: "btn-secundario" %>
