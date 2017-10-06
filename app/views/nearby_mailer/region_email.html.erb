@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Ola, <%= @user.name %></h1>
+    <p>
+      Um novo animal encontrado foi cadastrado na região onde o <%= @animal.name %> foi perdido,
+      veja o animal:  <a href="http://resgatabichos.herokuapp.com/animals/<%= @animal_add.id %>">  <%= @animal_add.name %> </a>.<br>
+      
+    </p>
+
+    <p>Obrigada por se juntar a causa, e um ótimo dia!</p>
+  </body>
+</html>

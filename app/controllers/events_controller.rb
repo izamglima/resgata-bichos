@@ -30,6 +30,19 @@ class EventsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @event = Event.new(event_params)
     @event.animal = @animal
+    
+    #se encontrado, envia email para usuário com animal perdido
+    if @event.status == "encontrado"
+      #chama método no model
+      @nearbys = @event.same_region
+
+      #busca os users
+      @nearbys.each do |event|
+        @animal_region = event.animal
+        @user_region = event.animal.user
+        NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
+      end
+    end
 
     respond_to do |format|
       if @event.save
