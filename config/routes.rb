@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :animals do
   	resources :images
   end
+  
   resources :animals do
   	resources :events
   end

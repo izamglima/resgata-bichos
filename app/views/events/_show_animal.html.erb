@@ -1,0 +1,47 @@
+<div class="col-md-3 col-sm-12 col-xs-12 box-infos">
+    <h3>Dados do animal</h3>
+    <div>
+        <h4>Tipo: </h4>
+        <p><%= @animal.animal_type %></p>
+    </div>
+    <div>
+        <h4>Raça: </h4>
+        <p><%= @animal.race %></p>
+    </div>
+    <div>
+        <h4>Cor: </h4>
+        <p><%= @animal.color %></p>
+    </div>
+    <div>
+        <h4>Gênero: </h4>
+        <p><%= @animal.sex %></p>
+    </div>
+    <div>
+        <h4>Idade: </h4>
+        <p><%= @animal.age %></p>
+    </div>
+    <div>
+        <h4>Porte: </h4>
+        <p><%= @animal.size %></p>
+    </div>
+    <h3>+ Informações do caso</h3>
+    <div>
+        <div>
+            <h4>Data do caso: </h4>
+            <p><%= @event.data_event %></p>
+        </div>
+        <div>
+            <h4>Endereço: </h4>
+            <p><%= @event.address %></p>
+        </div>
+        <div>
+            <h4>Status: </h4>
+            <p><%= @event.status %></p>
+        </div>
+        <div>
+            <h4>Comentário: </h4>
+            <p><%= @event.comment %></p>
+        </div>
+        <input type="hidden" name="latitude" id="lat" value="<%= @event.latitude %>">
+        <input type="hidden" name="longitude" id="long" value="<%= @event.longitude %>">
+</div>

@@ -1,10 +1,12 @@
+
+
 var eventoData;
 if ($('.search').length > 0) {
 	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventoData
 	axios('/api/search').then(function(response) { 
 
 		eventoData = response.data.map(function(evento) {
-		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id: evento.animal_id};
+		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_event: evento.id};
 	});
 	  
 	//chamada do mapa
@@ -25,9 +27,10 @@ function displayPins(filter){
 			var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
 			var nome = eventoData[i].name;
 			var address = eventoData[i].address;
-			var id = eventoData[i].id;
+			var id_animal = eventoData[i].id_animal;
+			var id_event = eventoData[i].id_event;
 
-			createPins(latlng, nome, status, address, id);
+			createPins(latlng, nome, status, address, id_animal, id_event);
 		// Os valores de latitude e longitude do marcador são adicionados à
 		// variável bounds
 		bounds.extend(latlng); 
@@ -39,7 +42,7 @@ function displayPins(filter){
 }
 
 // cria e define o conteúdo dos marcadores
-function createPins(latlng, nome, status, address, id){
+function createPins(latlng, nome, status, address, id_animal, id_event){
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
@@ -54,7 +57,7 @@ function createPins(latlng, nome, status, address, id){
 		'<div class="title-info">' + nome + '</div>' +
 		'<div class="title-info">' + address + '</div>' +
 		'<div class="content-info">' + status + '</div></div>'+
-		'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + id + '">Ver caso</a>' + '</div></div>';
+		'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + id_animal + '/events/' +  id_event +  ' ">Ver caso</a>' + '</div></div>';
 
 		// seta o conteúdo da infoContent
 		infos.setContent(infoContent);

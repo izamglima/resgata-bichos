@@ -1,37 +1,41 @@
 <%= render :partial => 'layouts/header' %>
 
 <main>
-  <section class="show-animal">
-    <div class="container">
-      <p id="notice"><%= notice %></p>
-
-      <p>
-        <strong>Data do evento:</strong>
-        <%= @event.data_event %>
-      </p>
-
-      <p>
-        <strong>Status:</strong>
-        <%= @event.status %>
-      </p>
-
-      <p>
-        <strong>Resolvido:</strong>
-        <%= @event.resolved %>
-      </p>
-
-      <p>
-        <strong>Comentário:</strong>
-        <%= @event.comment %>
-      </p>
-
-      <p>
-        <strong>Localização:</strong>
-        <%= @event.address %>
-      </p>
-
-      <%= link_to 'Edit', edit_animal_event_path(@animal, @event) %> |
-      <%= link_to 'Back', animal_events_path %>
-    </div>
-  </section>
+    <section class="show-animal">
+        <div class="container">
+            <div id="error_explanation" class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <p id="notice"><%= notice %></p>
+            </div>
+            <h1><%= @animal.name %></h1>
+            <div class="show-animal-container">
+                <div class="row">
+                    <%= render 'show_animal', animal: @animal %>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12 box-img">
+                    <h3>Imagem</h3>
+                    <ul>
+                        <% @animal.images.each do |image| %>
+                            <li><img class="img-responsive" src="<%= image.image.url %>"></li>
+                        <% end %>
+                    </ul>
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12">
+                    <h3>Localização</h3>
+                    <div id="mapholder"></div>
+                </div>
+                <div class="col-md-5 pull-right">
+                    <h3>Comentários</h3>
+                    
+                </div>
+            </div>
+            <div class="separator"></div>
+            <% unless current_user.blank? %>
+                <% if (@animal.user_id == current_user.id) %>
+                    <%= link_to 'Editar', edit_animal_path(@animal) %> |
+                <% end %>    
+            <% end %>
+            <%= link_to 'Voltar', animals_path %>
+        </div>  
+    </section>
 </main>

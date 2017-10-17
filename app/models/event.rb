@@ -1,5 +1,6 @@
 class Event < ApplicationRecord
 	belongs_to :animal
+	has_many :comments
 	reverse_geocoded_by :latitude, :longitude
 	before_validation :reverse_geocode  # auto-fetch address
 	geocoded_by :address
@@ -7,7 +8,7 @@ class Event < ApplicationRecord
 
 	
 	def same_region()
-		@all_nearbys = self.nearbys(1)
+		@all_nearbys = self.nearbys(5)
 		
 		@all_nearbys.select { |a| a.status == "perdido" }
 	end

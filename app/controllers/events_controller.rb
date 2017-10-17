@@ -36,11 +36,13 @@ class EventsController < ApplicationController
       #chama método no model
       @nearbys = @event.same_region
 
-      #busca os users
-      @nearbys.each do |event|
-        @animal_region = event.animal
-        @user_region = event.animal.user
-        NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
+      if @nearbys.any?
+        #busca os users
+        @nearbys.each do |event|
+          @animal_region = event.animal
+          @user_region = event.animal.user
+          NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
+        end
       end
     end
 

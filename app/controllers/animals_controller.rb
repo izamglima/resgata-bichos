@@ -42,8 +42,6 @@ class AnimalsController < ApplicationController
         
         respond_to do |format|
             if @animal.save
-                # Sends email to user when animal is created.
-                UserMailer.welcome_email(@user).deliver_now
 
                 format.html { redirect_to new_animal_image_path(@animal, { status: params[:status] }), notice: 'Animal was successfully created.' }
                 format.json { render :show, status: :created, location: @animal }
