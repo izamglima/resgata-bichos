@@ -1,0 +1,17 @@
+<%= form_for([animal, event]) do |f| %>
+
+    <div class="field resolvido">
+        <%= f.label :resolved, "Resolvido" %>
+        <%= f.check_box :resolved, class: "form-control" %>
+    </div>
+
+    <div class="field">
+        <%= f.label :comment, "Detalhes do evento" %>
+        <%= f.text_area :comment, class: "form-control" %>
+    </div>
+
+    <div class="actions"%>
+        <%= f.submit "Enviar", class: "btn-secundario" %>
+    </div>
+    
+<% end %>
