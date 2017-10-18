@@ -35,6 +35,22 @@ $('#new_event').submit(function(){
     return true;
 });
 
+$('#new_comment').submit(function(){ 
+   var inputComment = $('#comment_body');
+   var errors = [];
+    if ($(inputComment).val() == "") {
+        callTollTip(inputComment);
+        
+        errors.push(1);
+        $(inputComment).on('change', function() {
+            $(inputComment).parent().tooltip('hide');
+        })
+    }
+    if (errors.length > 0)
+        return false;            
+    return true;
+});
+
 $(document).ready(function() {
 	if($('#new_event').length) {
 

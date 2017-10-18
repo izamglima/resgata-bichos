@@ -3,10 +3,6 @@
 <main>
     <section class="show-animal">
         <div class="container">
-            <div id="error_explanation" class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <p id="notice"><%= notice %></p>
-            </div>
             <h1><%= @animal.name %></h1>
             <div class="show-animal-container">
                 <div class="row">
@@ -26,12 +22,15 @@
                 </div>
                 <div class="col-md-5 pull-right">
                     <h3>Comentários</h3>
-                    <!--
-                    <form>
-                      Aqui vai vim o formulário de add de comentarios
-                    </form>
-                    -->
-                    <%= render :partial => 'form_comment' %>
+
+                    <% if current_user.blank? %>
+                        <p>Para comentar você precisa estar logado!</p>
+                    <% end %>
+                    <% unless current_user.blank? %>        
+                        <%= render :partial => 'form_comment' %>
+                    <% end %>
+                    <p id="notice"><%= notice %></p>
+                    <%= render :partial => 'comments' %>
                 </div>
             </div>
             <div class="separator"></div>

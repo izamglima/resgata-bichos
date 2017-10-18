@@ -1,13 +1,11 @@
-<%= form_for([animal, event]) do |f| %>
-
-    <div class="field resolvido">
-        <%= f.label :resolved, "Resolvido" %>
-        <%= f.check_box :resolved, class: "form-control" %>
-    </div>
+<%= form_for(@comment) do |f| %>
+    
+    <%= f.hidden_field :event_id %>
+    <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>" >
 
     <div class="field">
-        <%= f.label :comment, "Detalhes do evento" %>
-        <%= f.text_area :comment, class: "form-control" %>
+        <%= f.label :body, "Digite seu comentário" %>
+        <%= f.text_area :body, class: "form-control" %>
     </div>
 
     <div class="actions"%>

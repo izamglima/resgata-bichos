@@ -11,7 +11,10 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @animal = Animal.find(params[:animal_id])
-    @events = @animal.events
+    @event = @animal.events.find(params[:id])
+    @comment = @event.comments.new #cria um novo comentário para aquele evento
+    @comments = @event.comments
+
   end
 
   # GET /events/new
@@ -48,7 +51,7 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to animal_events_path(@animal, "cadastro"),  notice: 'Event was successfully created.' }
+        format.html { redirect_to animal_events_path(@animal, "cadastro"),  notice: 'Event criado com sucesso' }
         format.json { render :show, status: :created, location: @event }
       else
         format.html { render :new }

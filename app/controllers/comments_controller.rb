@@ -1,16 +1,25 @@
 class CommentsController < ApplicationController
-  #mover do show do animal para show do evento
-  
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      #@animal = Animal.find(params[:animal_id])
-      #@event = @animal.events.find(params[:id])
+
+  def create
+    @comment = Comment.new(comment_params)
+
+    respond_to do |format|
+      
+      if @comment.save
+        format.html { redirect_to :back, notice: 'Comentário adicionado com sucesso' }
+        format.json { render :show, status: :created, location: @image }
+      else
+        format.html { redirect_to(:back) }
+        format.json { render json: @image.errors, status: :unprocessable_entity }
+      end
     end
+  end
+
+  private
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:body)
+    def comment_params
+      params.require(:comment).permit(:body, :event_id, :user_id)
     end
 
 end
