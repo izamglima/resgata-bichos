@@ -1,9 +1,9 @@
 <% if @comments.ids.any? %>
 	<div class="col-md-12">
 		<% @comments.each do |comment| %>
-			<% if comment.user.any? %>
-				<p>Autor: <%= comment.user.name %> </p>
-			<% end %>
+			
+			<p>Autor: <%= comment.user.name %> </p>
+			
 			<p>Comentario: <%= comment.body %></p>
 		<% end %>
 	</div>

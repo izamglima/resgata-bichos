@@ -194,7 +194,6 @@ div.tooltip.top {
 }
 .show-animal-container {
 	padding: 20px 0;
-	margin-top: 30px;
 }
 .show-animal-container p {
 	display: inline-block;
@@ -300,4 +299,16 @@ div.tooltip.top {
 .adote img {
 	box-shadow: 0px 0px 14px rgba(255, 255, 255, 0.57);
     border: 1px dotted #fff;
+}
+.fb-share-button { 
+	top: -5px;
+}
+.share-buttons {
+	display: inline-block;
+	margin-left: 20px;
+
+}
+.show-animal h1 {
+	display: inline-block;
+	padding-top: 15px;
 }
