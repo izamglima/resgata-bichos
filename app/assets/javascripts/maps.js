@@ -17,11 +17,18 @@ function initMap() {
         lat: position.coords.latitude,
         lng: position.coords.longitude
       };
-
+      
+      if ($('.new_event').length > 0){
       //Set to input hidden
-      document.getElementById('event_latitude').value = position.coords.latitude;
-  		document.getElementById('event_longitude').value = position.coords.longitude;
-
+        document.getElementById('event_latitude').value = position.coords.latitude;
+        document.getElementById('event_longitude').value = position.coords.longitude;
+      }
+      
+      if ($('#new_adoption').length > 0) {
+        document.getElementById('adoption_latitude').value = position.coords.latitude;
+        document.getElementById('adoption_longitude').value = position.coords.longitude;
+      }
+      
       infoWindow.setPosition(pos);
       infoWindow.setContent('Usar esta localização.');
       map.setCenter(pos);
@@ -65,7 +72,7 @@ function showPosition() {
 }
 
 $(document).ready(function() {
-  if ($('.new_event').length > 0) {
+  if ($('.new_event').length > 0 || $('#new_adoption').length > 0)  {
     initMap();
   };
   if($('.show-animal').length > 0) {
