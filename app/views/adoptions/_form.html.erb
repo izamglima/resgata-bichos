@@ -1,10 +1,10 @@
-<%= form_for([animal, event]) do |f| %>
-    <% if event.errors.any? %>
+<%= form_for([animal, adoption]) do |f| %>
+    <% if adoption.errors.any? %>
         <div id="error_explanation" class="alert alert-danger alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h2><%= pluralize(animal.errors.count, "error") %> prohibited this animal from being saved:</h2>
             <ul>
-            <% animal.errors.full_messages.each do |message| %>
+            <% adoption.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
             <% end %>
             </ul>
@@ -29,42 +29,22 @@
         <div id="map-canvas"></div>
     </div>
     <div class="field">
-        <%= f.label :data_event, "Data do evento" %>
-        <%= f.text_field :data_event, class: "form-control",placeholder: 'xx/xx/xxxx' %>
+        <%= f.label :date_adoption, "Data do evento" %>
+        <%= f.text_field :date_adoption, class: "form-control",placeholder: 'xx/xx/xxxx' %>
     </div>
-    
-    <% if params[:status] != "undefined" %>
-        <%= f.hidden_field :status, value: params[:status] %>  
-    <% end %>
 
-    <% if params[:status] == "undefined" %>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="search-block">
-                    <%= label_tag(:event_status_encontrado, "Encontrei o animal") %>
-                    <%= f.radio_button(:status, 'encontrado') %>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="search-block">
-                    <%= label_tag(:event_status_perdido, "Perdi o animal") %>
-                    <%= f.radio_button(:status, 'perdido') %>
-                </div>
-            </div>
-        </div>
-    <% end %>
 
     <%= f.hidden_field :latitude %>
     <%= f.hidden_field :longitude %>
 
-    <div class="field resolvido">
-        <%= f.label :resolved, "Resolvido" %>
-        <%= f.check_box :resolved, class: "form-control" %>
+    <div class="field">
+        <%= f.label :comment, "Detalhes do adoção" %>
+        <%= f.text_area :comment, class: "form-control" %>
     </div>
 
     <div class="field">
-        <%= f.label :comment, "Detalhes do evento" %>
-        <%= f.text_area :comment, class: "form-control" %>
+        <%= f.label :vaccinated, "É vacinado?" %>
+        <%= f.text_area :vaccinated, class: "form-control" %>
     </div>
 
     <div class="actions"%>

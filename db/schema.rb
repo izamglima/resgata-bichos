@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024190831) do
+ActiveRecord::Schema.define(version: 20171024213833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "adoptions", force: :cascade do |t|
     t.date    "date_adoption"
-    t.boolean "adopted"
     t.string  "comment"
     t.string  "address"
     t.boolean "vaccinated"

@@ -8,6 +8,7 @@ function validateImage(){
     $('#next').removeClass('hidden');
     if (myParam == "adoption") {
         $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/adoption/new?status='+myParam);
+        return
     }
     if(hasLocalhost){
         $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);

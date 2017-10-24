@@ -11,7 +11,7 @@
 			      <ol class="row">
 			        <li class="col col-md-3  col-sm-3 col-xs-3">Dados do animal</li>
 			        <li class="col col-md-3 col-sm-3 col-xs-3">Imagens do animal</li>
-			        <li class="col col-md-3 col-sm-3 col-xs-3">Local do evento</li>
+			        <li class="col col-md-3 col-sm-3 col-xs-3">Endereço</li>
 			        <li class="col col-md-3 col-sm-3 col-xs-3">Pronto!</li>
 			      </ol>
 			      <div class="progress">
@@ -27,8 +27,8 @@
 	    <div class="container">
 	    	<div class="form-container">
 				<h2>Mais informações</h2>
-				<p>Aqui você indica qual foi a localização do caso, a data e pode escrever como foi o ocorrido e outras informações.</p>
-				<%= render 'form', animal: @animal, event: @event %>
+				<p>Aqui você indica qual é o endereço que o animal está para ser doado, a data e pode escrever alguma descrição e se o animal é vacinado.</p>
+				<%= render 'form', animal: @animal, adopt: @adoption %>
 			</div>
 	    </div>  
 	</section>
