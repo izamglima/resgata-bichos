@@ -12,6 +12,10 @@ Rails.application.routes.draw do
   	resources :events
   end
 
+  resources :animals do
+    resources :adoption
+  end
+
   resources :comments
 
 

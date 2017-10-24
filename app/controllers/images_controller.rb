@@ -34,8 +34,13 @@ class ImagesController < ApplicationController
     @image = @animal.images.new(image_params)
     respond_to do |format|
       if @image.save
-        format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Imagem criada com sucesso' }
-        format.json { render :show, status: :created, location: @image }
+        if params[:status] == "adoption"
+          format.html { redirect_to new_animal_adoption_path(@animal, { status: params[:status] }), notice: 'Imagem criada com sucesso' }
+          format.json { render :show, status: :created, location: @image }
+        else
+          format.html { redirect_to new_animal_event_path(@animal, { status: params[:status] }), notice: 'Imagem criada com sucesso' }
+          format.json { render :show, status: :created, location: @image }
+        end
       else
         @animal = Animal.find(params[:animal_id])
         @animal_images = @animal.images

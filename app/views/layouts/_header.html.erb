@@ -21,6 +21,8 @@
 		    <li><a class=" " href="/search">Procurar animais</a></li>
 		    <li><%= link_to(new_animal_path(:status => 'encontrado')) do %>Achei um animal<% end %></li>
 		    <li><%= link_to(new_animal_path(:status => 'perdido')) do %>Perdi um animal<% end %></li>
+
+		    <li><%= link_to(new_animal_path(:status => 'adoption')) do %>Quero doar<% end %></li>
 		    <% if !user_signed_in? %>
 		    	<li class="naoLogado">
 		    		<%= link_to(new_user_session_path , :class => "button small-button ") do %>
