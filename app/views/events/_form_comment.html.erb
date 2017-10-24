@@ -5,7 +5,7 @@
 
     <div class="field">
         <%= f.label :body, "Digite seu comentário" %>
-        <%= f.text_area :body, class: "form-control" %>
+        <%= f.text_area :body, :maxlength => 240, class: "form-control" %>
     </div>
 
     <div class="actions"%>
