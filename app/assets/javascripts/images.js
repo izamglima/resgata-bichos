@@ -6,11 +6,14 @@ function validateImage(){
     var hasLocalhost = window.location.href.indexOf("localhost") > -1 ;
     var myParam = location.search.split('status=')[1];
     $('#next').removeClass('hidden');
+    if (myParam == "adoption") {
+        $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/adoption/new?status='+myParam);
+    }
     if(hasLocalhost){
         $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/events/new?status='+myParam);
     }
     else {        
-        $('#next').attr('href', '/animals/'+idAnimal+'/images/new?status='+myParam);
+        $('#next').attr('href', '/animals/'+idAnimal+'/events/new?status='+myParam);
     }
 }
 $('#new_image').submit(function(){ 

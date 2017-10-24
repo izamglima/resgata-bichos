@@ -2,6 +2,7 @@ class Animal < ApplicationRecord
 	belongs_to :user
 	has_many :images, dependent: :destroy
 	has_many :events, dependent: :destroy
+	has_many :adoptions, dependent: :destroy
 	validates :name, presence: true
 	validates :color, presence: true
 	validates :race, presence: true

@@ -1,14 +1,10 @@
 class AdoptionsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_adoption, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
-  # GET /events.json
   def index
-    @events = Adoption.all.where(animal_id: params[:animal_id])
+    @adoption = Adoption.all.where(animal_id: params[:animal_id])
   end
 
-  # GET /events/1
-  # GET /events/1.json
   def show
     @animal = Animal.find(params[:animal_id])
     @adoption = @animal.adoption.find(params[:id])
@@ -17,21 +13,19 @@ class AdoptionsController < ApplicationController
 
   end
 
-  # GET /events/new
+  
   def new
     @animal = Animal.find(params[:animal_id])
     @adoption = Adoption.new(animal: @animal)
   end
 
-  # GET /events/1/edit
+  
   def edit
   end
 
-  # POST /events
-  # POST /events.json
   def create
     @animal = Animal.find(params[:animal_id])
-    @adoption = Adoption.new(event_params)
+    @adoption = Adoption.new(adoption_params)
     @adoption.animal = @animal
     
     #se encontrado, envia email para usuário com animal perdido // mudar pra adoção
@@ -64,7 +58,7 @@ class AdoptionsController < ApplicationController
   # PATCH/PUT /events/1.json
   def update
     respond_to do |format|
-      if @adoption.update(event_params)
+      if @adoption.update(adoption_params)
         format.html { redirect_to animal_events_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @adoption }
       else
@@ -86,13 +80,13 @@ class AdoptionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_event
+    def set_adoption
       @animal = Animal.find(params[:animal_id])
-      @adoption = @animal.events.find(params[:id])
+      @adoption = @animal.adoption.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
+    def adoption_params
       params.require(:adoption).permit(:data_adoption, :adopted, :comment, :latitude, :longitude, :address, :vaccinated)
     end
 end

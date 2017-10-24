@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :animals do
-    resources :adoption
+    resources :adoptions
   end
 
   resources :comments
