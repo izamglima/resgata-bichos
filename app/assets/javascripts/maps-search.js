@@ -1,11 +1,11 @@
 
 
-var eventoData;
+var eventData;
 var adoptionsData;
 if ($('.search').length > 0) {
-	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventoData
+	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventData
 	axios('/api/search').then(function(response) { 
-		eventoData = response.data.map(function(evento) {
+		eventData = response.data.map(function(evento) {
 			return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_event: evento.id};
 		});
 	})
@@ -25,16 +25,16 @@ function displayPins(filter){
     // define a área de mapa a exibir
     var bounds = new google.maps.LatLngBounds();
 
-    //percorre o eventoData e cria marcadores com o conteúdo
-	for (var i = 0; i < eventoData.length; i++){
+    //percorre o eventData e cria marcadores com o conteúdo
+	for (var i = 0; i < eventData.length; i++){
 		
-		var status = eventoData[i].status;
+		var status = eventData[i].status;
 		if (filter == status || filter == "todos") {
-			var latlng = new google.maps.LatLng(eventoData[i].latitude, eventoData[i].longitude);
-			var nome = eventoData[i].name;
-			var address = eventoData[i].address;
-			var id_animal = eventoData[i].id_animal;
-			var id_event = eventoData[i].id_event;
+			var latlng = new google.maps.LatLng(eventData[i].latitude, eventData[i].longitude);
+			var nome = eventData[i].name;
+			var address = eventData[i].address;
+			var id_animal = eventData[i].id_animal;
+			var id_event = eventData[i].id_event;
 
 			createPins(latlng, nome, status, address, id_animal, id_event);
 		// Os valores de latitude e longitude do marcador são adicionados à
@@ -46,11 +46,13 @@ function displayPins(filter){
 	for (var i = 0; i < adoptionsData.length; i++) {
 		if (filter == "adoptions" || filter == "todos"){
 			var latlng = new google.maps.LatLng(adoptionsData[i].latitude, adoptionsData[i].longitude);
+			var nome = adoptionsData[i].name;
 			var address = adoptionsData[i].address;
 			var id_animal = adoptionsData[i].id_animal;
 			var id_adoption = adoptionsData[i].id_adoption;
 
-			createPins(latlng, nome, "Para Adoção", address, id_animal, id_event);
+
+			createPins(latlng, nome, address, id_animal, id_event);
 			bounds.extend(latlng);
 		}
 	}
@@ -66,7 +68,7 @@ function createPins(latlng, nome, status, address, id_animal, id_event){
 		position: latlng,
 		title: nome
 	});
-
+	console.log(status);
    	// Adiciona um listener para o evento click para montar o conteúdo da infowindow
    	google.maps.event.addListener(marker, 'click', function() {
       
@@ -100,6 +102,6 @@ function initialize(filter) {
 		infos.close();
 	});
 
-	// Chamada para a função que vai percorrer as informações do eventoData e criar os pins no mapa
+	// Chamada para a função que vai percorrer as informações do eventData e criar os pins no mapa
 	displayPins(filter);
 }
