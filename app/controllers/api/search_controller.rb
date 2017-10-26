@@ -5,5 +5,11 @@ module API
   	def index
   	  render json: Event.all, :include => {:animal => {:only => :name}}
   	end
+
+  	def adoptions
+  		render json: Adoption.all 
+  	end
+
+  	
   end
 end

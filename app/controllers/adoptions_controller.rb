@@ -1,15 +1,16 @@
 class AdoptionsController < ApplicationController
-  before_action :set_adoption, only: [:show, :edit, :update, :destroy]
+  #before_action :set_adoption, only: [:show, :edit, :update, :destroy]
 
   def index
-    @adoption = Adoption.all.where(animal_id: params[:animal_id])
+    @adoptions = Adoption.where(animal_id: params[:animal_id])
   end
 
   def show
     @animal = Animal.find(params[:animal_id])
-    @adoption = @animal.adoption.find(params[:id])
-    @comment = @event.comments.new #cria um novo comentário para aquele evento
-    @comments = @event.comments
+
+    #@adoption = @animal.adoptions_ids.all
+    #@comment = @event.comments.new #cria um novo comentário para aquele evento
+    #@comments = @event.comments
 
   end
 
@@ -29,23 +30,23 @@ class AdoptionsController < ApplicationController
     @adoption.animal = @animal
     
     #se encontrado, envia email para usuário com animal perdido // mudar pra adoção
-    if @adoption.status == "encontrado"
+    #if @adoption.status == "encontrado"
       #chama método no model
-      @nearbys = @event.same_region
+      #@nearbys = @event.same_region
 
-      if @nearbys.any?
+      #if @nearbys.any?
         #busca os users
-        @nearbys.each do |event|
-          @animal_region = event.animal
-          @user_region = event.animal.user
-          NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
-        end
-      end
-    end
+        #@nearbys.each do |event|
+          #@animal_region = event.animal
+          #@user_region = event.animal.user
+          #NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
+        #end
+      #end
+    #end
 
     respond_to do |format|
       if @adoption.save
-        format.html { redirect_to animal_adoption_path(@animal, "cadastro"),  notice: 'Adoção criada com sucesso' }
+        format.html { redirect_to animal_adoptions(@animal),  notice: 'Adoção criada com sucesso' }
         format.json { render :show, status: :created, location: @adoption }
       else
         format.html { render :new }
@@ -80,13 +81,13 @@ class AdoptionsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_adoption
-      @animal = Animal.find(params[:animal_id])
-      @adoption = @animal.adoption.find(params[:id])
-    end
+    #def set_adoption
+      #@animal = Animal.find(params[:animal_id])
+      #@adoption = @animal.adoptions_ids.find(params[:id])
+    #end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def adoption_params
-      params.require(:adoption).permit(:data_adoption, :adopted, :comment, :latitude, :longitude, :address, :vaccinated)
+      params.require(:adoption).permit(:date_adoption, :comment, :latitude, :longitude, :address, :vaccinated)
     end
 end

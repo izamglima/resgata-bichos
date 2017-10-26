@@ -8,6 +8,11 @@ if ($('.search').length > 0) {
 		eventoData = response.data.map(function(evento) {
 		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_event: evento.id};
 	});
+	axios('/api/search/adoptions').then(function(response) { 
+
+		adoptionsData = response.data.map(function(evento) {
+		return {latitude: evento.latitude, longitude: evento.longitude, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_adoption: evento.id};
+	});
 	  
 	//chamada do mapa
 	initialize("todos");
@@ -36,6 +41,8 @@ function displayPins(filter){
 		bounds.extend(latlng); 
 		}
 	}
+
+	for (var i = 0)
 
    // Aqui a API redefine o nível do zoom de acordo com as posições passadas dos casos registrados
    map.fitBounds(bounds);

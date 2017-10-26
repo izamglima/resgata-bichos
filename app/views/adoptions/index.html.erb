@@ -1,0 +1,28 @@
+<%= render :partial => 'layouts/header' %>
+<main>
+   <section class="new-animal">
+    <div class="container">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @adoptions.each do |adoption| %>
+            <tr>
+              <td><p><%= adoption.comment %>"></p></td>
+              <td><%= link_to 'Show', animal_adoption_path(params[:animal_id], adoption) %></td>
+              <td><%= link_to 'Edit', edit_animal_adoption_path(params[:animal_id], adoption) %></td>
+              <td><%= link_to 'Destroy', animal_adoption_path(params[:animal_id], adoption), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      
+    </div> 
+  </section>
+</main>
+

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   namespace :api do
-    resources :search
+    get '/search' => 'search#index'
+    get '/search/adoptions' => 'search#adoptions'
   end
   
   resources :animals do
@@ -23,8 +24,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root 'welcome#index'
-
-  get '/search' =>'searchs#search'
 
   get '/.well-known/acme-challenge/:id' => 'welcome#letsencrypt'
   
