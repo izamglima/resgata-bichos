@@ -7,7 +7,7 @@ module API
   	end
 
   	def adoptions
-  		render json: Adoption.all 
+  		render json: Adoption.all, :include => {:animal => {:only => :name}}
   	end
 
   	

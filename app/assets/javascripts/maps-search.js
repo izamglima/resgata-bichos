@@ -1,23 +1,24 @@
 
 
 var eventoData;
+var adoptionsData;
 if ($('.search').length > 0) {
 	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventoData
 	axios('/api/search').then(function(response) { 
-
 		eventoData = response.data.map(function(evento) {
-		return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_event: evento.id};
+			return {latitude: evento.latitude, longitude: evento.longitude, status: evento.status, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_event: evento.id};
+		});
+	})
+	.then(function(){
+		axios('/api/search/adoptions').then(function(response) { 
+			adoptionsData = response.data.map(function(evento) {
+				return {latitude: evento.latitude, longitude: evento.longitude, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_adoption: evento.id};
+			});
+		})
+		.then(function(){
+			initialize("todos");
+		});
 	});
-	axios('/api/search/adoptions').then(function(response) { 
-
-		adoptionsData = response.data.map(function(evento) {
-		return {latitude: evento.latitude, longitude: evento.longitude, address: evento.address, name: evento.animal.name, id_animal: evento.animal_id, id_adoption: evento.id};
-	});
-	  
-	//chamada do mapa
-	initialize("todos");
-
-	});    
 };
 
 function displayPins(filter){
@@ -42,7 +43,17 @@ function displayPins(filter){
 		}
 	}
 
-	for (var i = 0)
+	for (var i = 0; i < adoptionsData.length; i++) {
+		if (filter == "adoptions" || filter == "todos"){
+			var latlng = new google.maps.LatLng(adoptionsData[i].latitude, adoptionsData[i].longitude);
+			var address = adoptionsData[i].address;
+			var id_animal = adoptionsData[i].id_animal;
+			var id_adoption = adoptionsData[i].id_adoption;
+
+			createPins(latlng, nome, "Para Adoção", address, id_animal, id_event);
+			bounds.extend(latlng);
+		}
+	}
 
    // Aqui a API redefine o nível do zoom de acordo com as posições passadas dos casos registrados
    map.fitBounds(bounds);
