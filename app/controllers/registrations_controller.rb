@@ -6,4 +6,5 @@ class RegistrationsController < Devise::RegistrationsController
 	# Sends email to user when acc is created.
     #UserMailer.welcome_email(@user).deliver_now --testar
   end
+
 end	
