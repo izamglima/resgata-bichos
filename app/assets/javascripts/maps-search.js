@@ -36,7 +36,7 @@ function displayPins(filter){
 			var id_animal = eventData[i].id_animal;
 			var id_event = eventData[i].id_event;
 
-			createPins(latlng, nome, status, address, id_animal, id_event);
+			createPins(latlng, nome, status, address, id_animal, id_event, null);
 		// Os valores de latitude e longitude do marcador são adicionados à
 		// variável bounds
 		bounds.extend(latlng); 
@@ -51,8 +51,7 @@ function displayPins(filter){
 			var id_animal = adoptionsData[i].id_animal;
 			var id_adoption = adoptionsData[i].id_adoption;
 
-
-			createPins(latlng, nome, address, id_animal, id_event);
+			createPins(latlng, nome, null, address, id_animal, null, id_adoption);
 			bounds.extend(latlng);
 		}
 	}
@@ -62,22 +61,32 @@ function displayPins(filter){
 }
 
 // cria e define o conteúdo dos marcadores
-function createPins(latlng, nome, status, address, id_animal, id_event){
+function createPins(latlng, nome, status, address, id_animal, id_event, id_adoption){
+	var isAdoption = status === null && id_event === null;
+
 	var marker = new google.maps.Marker({
 		map: map,
 		position: latlng,
 		title: nome
 	});
-	console.log(status);
+
    	// Adiciona um listener para o evento click para montar o conteúdo da infowindow
    	google.maps.event.addListener(marker, 'click', function() {
       
 		// Variável que define a estrutura do HTML a inserir na Info Window.
 		var infoContent = '<div id="container-infos">' +
 		'<div class="title-info">' + nome + '</div>' +
-		'<div class="title-info">' + address + '</div>' +
-		'<div class="content-info">' + status + '</div></div>'+
-		'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + id_animal + '/events/' +  id_event +  ' ">Ver caso</a>' + '</div></div>';
+		'<div class="title-info">' + address + '</div>';
+
+		if (isAdoption) {
+			infoContent += '<div class="content-info">Para adoção</div></div>' +
+			'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + 
+			id_animal + '/adoptions/' +  id_adoption +  ' ">Ver animal</a>' + '</div></div>';
+		} else {
+			infoContent += '<div class="content-info">' + status + '</div></div>' +
+			'<div class="content-info"><a class="link-green" target="_blank" href="animals/' + 
+			id_animal + '/events/' +  id_event +  ' ">Ver animal</a>' + '</div></div>';
+		}
 
 		// seta o conteúdo da infoContent
 		infos.setContent(infoContent);
