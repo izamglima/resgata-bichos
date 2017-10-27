@@ -10,6 +10,5 @@ module API
   		render json: Adoption.all, :include => {:animal => {:only => :name}}
   	end
 
-  	
   end
 end

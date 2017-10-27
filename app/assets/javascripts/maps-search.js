@@ -1,7 +1,6 @@
-
-
 var eventData;
 var adoptionsData;
+
 if ($('.search').length > 0) {
 	//Esta promise espera a api retornar os dados para então alimentar o array da variável eventData
 	axios('/api/search').then(function(response) { 

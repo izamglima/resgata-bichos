@@ -6,16 +6,16 @@
     	<h1>Procurar animais</h1>
     	<div class="row">
     		<div class="col-md-3">
-    			<button class="btn btn-secundario" onclick="initialize('todos');">Todos</button>
+    			<button class="btn btn-secundario" onclick="initialize('todos');">Todos (<%= @countAll %>)</button>
     		</div>
     		<div class="col-md-3">
-    			<button class="btn btn-secundario" onclick="initialize('perdido');">Perdidos</button>
+    			<button class="btn btn-secundario" onclick="initialize('perdido');">Perdidos (<%= @countLosts %>)</button>
     		</div>
     		<div class="col-md-3">
-    			<button class="btn btn-secundario" onclick="initialize('encontrado');">Encontrados</button>
+    			<button class="btn btn-secundario" onclick="initialize('encontrado');">Encontrados (<%= @countFounds %>)</button>
     		</div>
             <div class="col-md-3">
-                <button class="btn btn-secundario" onclick="initialize('adoptions');">Adoção</button>
+                <button class="btn btn-secundario" onclick="initialize('adoptions');">Adoção (<%= @countAdoptions %>)</button>
             </div>
     	</div>
 		<div id="map-search"></div>

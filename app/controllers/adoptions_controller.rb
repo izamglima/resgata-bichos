@@ -11,7 +11,6 @@ class AdoptionsController < ApplicationController
     #@adoption = @animal.adoptions_ids.all
     #@comment = @event.comments.new #cria um novo comentário para aquele evento
     #@comments = @event.comments
-
   end
 
   
@@ -28,21 +27,6 @@ class AdoptionsController < ApplicationController
     @animal = Animal.find(params[:animal_id])
     @adoption = Adoption.new(adoption_params)
     @adoption.animal = @animal
-    
-    #se encontrado, envia email para usuário com animal perdido // mudar pra adoção
-    #if @adoption.status == "encontrado"
-      #chama método no model
-      #@nearbys = @event.same_region
-
-      #if @nearbys.any?
-        #busca os users
-        #@nearbys.each do |event|
-          #@animal_region = event.animal
-          #@user_region = event.animal.user
-          #NearbyMailer.region_email(@user_region, @animal_region, @event.animal).deliver_now
-        #end
-      #end
-    #end
 
     respond_to do |format|
       if @adoption.save
@@ -80,12 +64,6 @@ class AdoptionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    #def set_adoption
-      #@animal = Animal.find(params[:animal_id])
-      #@adoption = @animal.adoptions_ids.find(params[:id])
-    #end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def adoption_params
       params.require(:adoption).permit(:date_adoption, :comment, :latitude, :longitude, :address, :vaccinated)
