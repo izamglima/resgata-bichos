@@ -10,6 +10,6 @@ class Image < ApplicationRecord
 										}
 	validates_attachment :image,
   					  content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }, presence: true
-  	validates_attachment_size :image, :in => 0.megabytes..10.megabytes, :message => 'Sua imagem precisa ser menor que 6mb'
+  	validates_attachment_size :image, :in => 0.megabytes..10.megabytes
 end
 
