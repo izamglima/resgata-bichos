@@ -1,0 +1,2 @@
+class RaceDog < ApplicationRecord
+end

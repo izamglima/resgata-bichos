@@ -97,6 +97,7 @@ class AnimalsController < ApplicationController
     end
 
     def dog_races
+      #DogRace.all.map { |race| [ race.name, race.name ] }
     [
       ['Sem raça definida', 'Sem raça definida'],
       ['Affenpinscher', 'Affenpinscher'],
@@ -246,6 +247,7 @@ class AnimalsController < ApplicationController
     end
 
     def cat_races
+      #CatRace.all
     [
       ['Sem raça definida', 'Sem raça definida'],
       ['Abissínio', 'Abissínio'],

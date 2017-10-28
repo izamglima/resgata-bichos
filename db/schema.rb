@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171028215454) do
+ActiveRecord::Schema.define(version: 20171028232135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 20171028215454) do
     t.string   "sex"
     t.string   "age"
     t.string   "size"
+    t.integer  "size_id"
+    t.integer  "race_dog_id"
+    t.integer  "race_cat_id"
+    t.index ["race_cat_id"], name: "index_animals_on_race_cat_id", using: :btree
+    t.index ["race_dog_id"], name: "index_animals_on_race_dog_id", using: :btree
+    t.index ["size_id"], name: "index_animals_on_size_id", using: :btree
     t.index ["user_id"], name: "index_animals_on_user_id", using: :btree
   end
 
@@ -75,20 +81,22 @@ ActiveRecord::Schema.define(version: 20171028215454) do
     t.index ["animal_id"], name: "index_images_on_animal_id", using: :btree
   end
 
-  create_table "races", force: :cascade do |t|
+  create_table "race_cats", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "animal_id"
-    t.index ["animal_id"], name: "index_races_on_animal_id", using: :btree
+  end
+
+  create_table "race_dogs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sizes", force: :cascade do |t|
     t.string   "name"
-    t.integer  "animal_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["animal_id"], name: "index_sizes_on_animal_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -111,11 +119,12 @@ ActiveRecord::Schema.define(version: 20171028215454) do
   end
 
   add_foreign_key "adoptions", "animals"
+  add_foreign_key "animals", "race_cats"
+  add_foreign_key "animals", "race_dogs"
+  add_foreign_key "animals", "sizes"
   add_foreign_key "animals", "users"
   add_foreign_key "comments", "events"
   add_foreign_key "comments", "users"
   add_foreign_key "events", "animals"
   add_foreign_key "images", "animals"
-  add_foreign_key "races", "animals"
-  add_foreign_key "sizes", "animals"
 end
