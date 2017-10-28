@@ -33,6 +33,9 @@ gem 'aws-sdk'
 # GEOCoder for manipulate data from maps
 gem 'geocoder'
 
+# rails adm
+gem 'trestle'
+
 #pwa with rails
 gem "serviceworker-rails"
 
