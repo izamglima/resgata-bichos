@@ -9,7 +9,7 @@ class Image < ApplicationRecord
 											:secret_access_key => ENV['AWS_SECRET']
 										}
 	validates_attachment :image,
-  		content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
-  	validates :image, presence: true
+  					  content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }, presence: true
+  	validates_attachment_size :image, :in => 0.megabytes..10.megabytes, :message => 'Sua imagem precisa ser menor que 6mb'
 end
 
