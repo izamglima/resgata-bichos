@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   resources :comments
 
   devise_for :users, controllers: { registrations: "registrations" }
-  
-  resources :users, only: [:show]
 
   get '/search' =>'search#search'
 
