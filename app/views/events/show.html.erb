@@ -10,7 +10,7 @@
                 Tweet</a>
                 <div class="fb-share-button" data-href="http://resgatabichos.herokuapp.com/animals/<%= @animal.id %>/events/<%= @event.id %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=Animal%20<%= @event.status %>.%20Local:%20<%= @event.address %> ">Share</a></div>
             </div>
-            <p>Adicionado por: <a href="/user/<%= @animal.user.id %> "><%= @animal.user.name %></a></p>
+            <p>Adicionado por: <a href="/users/<%= @animal.user.id %> "><%= @animal.user.name %></a></p>
             <div class="show-animal-container">         
                 <div class="row">
                     <%= render 'show_animal', animal: @animal %>

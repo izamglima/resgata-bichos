@@ -7,9 +7,8 @@ class Event < ApplicationRecord
 	before_validation :geocode, :if => :address_changed?
 
 	
-	def same_region()
+	def same_region()	
 		@all_nearbys = self.nearbys(5)
-		
 		@all_nearbys.select { |a| a.status == "perdido" }
 	end
 

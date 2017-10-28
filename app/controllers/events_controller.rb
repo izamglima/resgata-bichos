@@ -39,7 +39,7 @@ class EventsController < ApplicationController
       #chama método no model
       @nearbys = @event.same_region
 
-      if @nearbys.any?
+      if @nearbys
         #busca os users
         @nearbys.each do |event|
           @animal_region = event.animal
