@@ -7,7 +7,6 @@ class Animal < ApplicationRecord
 	belongs_to :race_dog
 	validates :name, presence: true
 	validates :color, presence: true
-	validates :race, presence: true
 	validates :sex, presence: true
 	validates :age, presence: true
 	validates :size, presence: true
