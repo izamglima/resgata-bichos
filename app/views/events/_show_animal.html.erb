@@ -6,7 +6,11 @@
     </div>
     <div>
         <h4>Raça: </h4>
-        <p><%= @animal.race %></p>
+        <% if  @animal.race_dog_id %>
+            <p><%= @animal.race_dog.name %></p>
+        <% elsif @animal.race_cat_id %>
+            <p><%= @animal.race_cat.name %></p>
+        <% end %>
     </div>
     <div>
         <h4>Cor: </h4>
