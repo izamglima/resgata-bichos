@@ -3,8 +3,8 @@ class Animal < ApplicationRecord
 	has_many :images, dependent: :destroy
 	has_many :events, dependent: :destroy
 	has_many :adoptions, dependent: :destroy
-	belongs_to :race_cat
-	belongs_to :race_dog
+	belongs_to :race_cat, optional: true
+	belongs_to :race_dog, optional: true
 	validates :name, presence: true
 	validates :color, presence: true
 	validates :sex, presence: true
