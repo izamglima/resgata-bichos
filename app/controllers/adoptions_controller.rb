@@ -30,7 +30,7 @@ class AdoptionsController < ApplicationController
 
     respond_to do |format|
       if @adoption.save
-        format.html { redirect_to animal_adoptions(@animal),  notice: 'Adoção criada com sucesso' }
+        format.html { redirect_to  animal_adoptions_url(@animal),  notice: 'Adoção criada com sucesso' }
         format.json { render :show, status: :created, location: @adoption }
       else
         format.html { render :new }
