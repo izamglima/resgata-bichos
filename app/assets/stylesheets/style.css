@@ -99,7 +99,7 @@ div.tooltip.top {
     border-top-color: #ea2c2c;
 }
 .navbar-default {
-	background-color: #FFF5D3;
+	background-color: #FFFFFF;
     border-color: #e2d6ad;
 }
 .navbar-default .navbar-nav>li>a{
@@ -108,6 +108,8 @@ div.tooltip.top {
 }
 .navbar-default .navbar-brand {
 	color: #8a26be;
+	text-transform: uppercase;
+    font-weight: bolder;
 }
 .principal {
 	height: 75vh;
