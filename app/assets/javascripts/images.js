@@ -7,7 +7,7 @@ function validateImage(){
     var myParam = location.search.split('status=')[1];
     $('#next').removeClass('hidden');
     if (myParam == "adoption") {
-        $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/adoption/new?status='+myParam);
+        $('#next').attr('href', 'http://localhost:3000/animals/'+idAnimal+'/adoptions/new?status='+myParam);
         return
     }
     if(hasLocalhost){

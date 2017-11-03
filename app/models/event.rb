@@ -9,7 +9,10 @@ class Event < ApplicationRecord
 	
 	def same_region()	
 		@all_nearbys = self.nearbys(5)
+		
+		return [] if @all_nearbys.nil?
 		@all_nearbys.select { |a| a.status == "perdido" }
+		
 	end
 
 end
