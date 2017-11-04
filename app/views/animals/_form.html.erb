@@ -11,9 +11,9 @@
 	</div>
   <% end %>
   <% if @animals.any? && @animal.new_record? %>
-	  <a href="javascript:void(0)" class="link-md" id="exist" onclick="toggleCreation();">Usar um animal já cadastrado</a>
+	  <a href="javascript:void(0)" class="link-md link-color" id="exist" onclick="toggleCreation();">Usar um animal já cadastrado</a>
 	  <div id="exist-container" class="hidden">
-	  	<a href="javascript:void(0)" class="link-md hidden" id="newItem" onclick="toggleCreation();">Criar novo animal</a>
+	  	<a href="javascript:void(0)" class="link-md hidden link-color" id="newItem" onclick="toggleCreation();">Criar novo animal</a>
 		  <div class="field" data-toggle="tooltip"> 
 		  	<label>Animais já cadastrados</label>
 		  	<select class="form-control" id="cadastrados">
@@ -75,7 +75,7 @@
 	  <input type="hidden" id="status_animal" name="status" value="<%= @status_animal %>">	  
 
 	  <div class="actions">
-		<%= f.submit "Enviar", class: "btn-secundario" %>
+		<%= f.submit "Próximo passo", class: "btn-secundario" %>
 	  </div>
   </div>
 <% end %>

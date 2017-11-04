@@ -1,7 +1,7 @@
 h1, h2, h3, h4,li {
 	font-family: 'Montserrat', sans-serif;
 }
-a, p, .progress {
+a, p, .progress, label {
 	font-family: 'Open Sans', sans-serif;
 }
 main {
@@ -21,7 +21,8 @@ footer {
 h1 {
 	font-size: 28px;
 }
-.link-green {
+
+.link-color {
 	color: #6AB2A6;
 }
 .height-50 {
@@ -32,10 +33,10 @@ h1 {
 	background-color: #8a26be;
 	color: #fff;
 	padding: 20px 25px;
-    border-radius: 7px;
     border: 1px solid #823c84;
-    font-size: 16px;
+    font-size: 15px;
     transition: .5s;
+    text-transform: uppercase;
 }
 .link-md {
 	font-size: 16px;
@@ -54,7 +55,6 @@ h1 {
 	background-color: #6AB2A6;
 	color: #fff;
 	padding: 10px 25px;
-    border-radius: 7px;
     border: 1px solid #3aa795;
     font-size: 16px;
     transition: .5s;
@@ -107,8 +107,8 @@ div.tooltip.top {
     border-bottom: 1px dotted #777
 }
 .navbar-default .navbar-nav>li>a{
-	color: #333;
-	font-size: 17px;
+    color: #7f7f7f;
+    font-size: 15px;
 }
 .navbar-default .navbar-brand {
 	color: #8a26be;
@@ -160,9 +160,8 @@ div.tooltip.top {
 	width: 100%;
     margin: 0 auto;
     padding: 30px 35px;
-    border: 1px solid #777;
+    border: 1px dotted #777;
     margin-top: 35px;
-    border-radius: 7px;
 }
 .progress-bar {
 	background-color: #6AB2A6;
@@ -328,4 +327,26 @@ div.tooltip.top {
 }
 .new_comment .field {
 	margin-top: 25px;
+}
+
+
+/*
+*****
+Sobreescrevendo Bootstrap
+*****
+*/
+
+.form-control, .btn-secundario {
+	border-radius: 0 !important;
+}
+
+label {
+	color: #7f7f7f;
+}
+p {
+	color: #7f7f7f;
+}
+div.col-centered {
+    float: none;
+    margin: 0 auto;
 }
