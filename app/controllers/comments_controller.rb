@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to :back, notice: 'Comentário adicionado com sucesso' }
         format.json { render :show, status: :created, location: @image }
       else
+        puts @comment.errors.inspect
         format.html { redirect_to(:back) }
         format.json { render json: @image.errors, status: :unprocessable_entity }
       end
@@ -19,7 +20,7 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:body, :event_id, :user_id)
+      params.require(:comment).permit(:body, :event_id, :user_id, :adoption_id)
     end
 
 end

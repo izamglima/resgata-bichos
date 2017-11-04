@@ -1,0 +1,15 @@
+<%= form_for(@comment) do |f| %>
+    
+    <%= f.hidden_field :adoption_id %>
+    <input type="hidden" name="comment[user_id]" value="<%= current_user.id %>" >
+
+    <div class="field">
+        <%= f.label :body, "Digite seu comentário" %>
+        <%= f.text_area :body, :maxlength => 240, class: "form-control" %>
+    </div>
+
+    <div class="actions"%>
+        <%= f.submit "Enviar", class: "btn-secundario" %>
+    </div>
+    
+<% end %>

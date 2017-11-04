@@ -1,0 +1,10 @@
+
+<% @comments.each do |comment| %>
+	<% next if !comment.persisted? %>
+	<div class="comments">
+		<p>Autor: <%= comment.user.name %> </p>
+		<br>
+		<p>Comentario: <%= comment.body %></p>
+
+	</div>
+<% end %>

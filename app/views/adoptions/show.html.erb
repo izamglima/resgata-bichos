@@ -2,9 +2,76 @@
 <main>
     <section class="show-animal">
         <div class="container">
-            <h1><%= @animal.name %></h1>
+            <h1><%= @animal.name %> - Adoção</h1>            
+            <div class="share-buttons">
+                <a class="twitter-share-button"
+                href="https://twitter.com/intent/tweet?text=Animal para adoção:%20<%= @animal.name %>.%20Local:%20<%= @adoption.address %> "
+                data-size="small">
+                Tweet</a>
+                <div class="fb-share-button" data-href="http://resgatabichos.herokuapp.com/animals/<%= @animal.id %>/adotoptions/<%= @adoption.id %>" data-layout="button" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=Animal para adoção:%20<%= @animal.name %>.%20Local:%20<%= @adoption.address %> ">Share</a></div>
+            </div>
+            <p>Adicionado por: <%= @animal.user.name %></p>
+            <div class="show-animal-container">         
+                <div class="row">
+                    <%= render 'show_animal', animal: @animal %>
+                </div>
+                <div class="col-md-5 col-sm-12 col-xs-12 box-img">
+                    <h3>Localização</h3>
+                    <div id="mapholder"></div>
+                    <h3>Imagem</h3>
+                    <ul>
+                        <% @animal.images.each do |image| %>
+                            <li><img class="img-responsive" src="<%= image.image.url %>"></li>
+                        <% end %>
+                    </ul>
+                </div>
+                
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                    <h3>Comentários</h3>
+
+                    <%= render :partial => 'comments' %>
+
+                    <% if current_user.blank? %>
+                        <p>Para comentar você precisa estar logado!</p>
+                    <% end %>
+                    <% unless current_user.blank? %>        
+                        <%= render :partial => 'form_comment' %>
+                    <% end %>
+                    
+                </div>
+            </div>
+            <div class="separator"></div>
+            <% unless current_user.blank? %>
+                <% if (@animal.user_id == current_user.id) %>
+                    <%= link_to 'Editar', edit_animal_path(@animal) %> |
+                <% end %>    
+            <% end %>
             
         </div>  
     </section>
 </main>
 <%= render :partial => 'layouts/footer' %>
+<script>window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=425320334277338';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>

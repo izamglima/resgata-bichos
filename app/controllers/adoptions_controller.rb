@@ -7,10 +7,9 @@ class AdoptionsController < ApplicationController
 
   def show
     @animal = Animal.find(params[:animal_id])
-
-    #@adoption = @animal.adoptions_ids.all
-    #@comment = @event.comments.new #cria um novo comentário para aquele evento
-    #@comments = @event.comments
+    @adoption = Adoption.find(params[:id])    
+    @comment = @adoption.comments.new #cria um novo comentário para aquele evento
+    @comments = @adoption.comments
   end
 
   
