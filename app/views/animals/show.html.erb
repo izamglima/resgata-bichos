@@ -1,34 +1,38 @@
 <%= render :partial => 'layouts/header' %>
-
-<div class="col-md-3 col-sm-12 col-xs-12 box-infos">
-    <h3>Dados do animal</h3>
-    <div>
-        <h4>Tipo: </h4>
-        <p><%= @animal.animal_type %></p>
-    </div>
-    <div>
-        <h4>Raça: </h4>
-        <% if  @animal.race_dog_id %>
-            <p><%= @animal.race_dog.name %></p>
-        <% elsif @animal.race_cat_id %>
-            <p><%= @animal.race_cat.name %></p>
-        <% end %>
-    </div>
-    <div>
-        <h4>Cor: </h4>
-        <p><%= @animal.color %></p>
-    </div>
-    <div>
-        <h4>Gênero: </h4>
-        <p><%= @animal.sex %></p>
-    </div>
-    <div>
-        <h4>Idade: </h4>
-        <p><%= @animal.age %></p>
-    </div>
-    <div>
-        <h4>Porte: </h4>
-        <p><%= @animal.size %></p>
-    </div>
+<div class="row">
+     <div class="col-md-8 col-centered">
+        <div class="col-md-3 col-sm-12 col-xs-12 box-infos">
+            <h3>Dados do animal</h3>
+            <div>
+                <h4>Tipo: </h4>
+                <p><%= @animal.animal_type %></p>
+            </div>
+            <div>
+                <h4>Raça: </h4>
+                <% if  @animal.race_dog_id %>
+                    <p><%= @animal.race_dog.name %></p>
+                <% elsif @animal.race_cat_id %>
+                    <p><%= @animal.race_cat.name %></p>
+                <% end %>
+            </div>
+            <div>
+                <h4>Cor: </h4>
+                <p><%= @animal.color %></p>
+            </div>
+            <div>
+                <h4>Gênero: </h4>
+                <p><%= @animal.sex %></p>
+            </div>
+            <div>
+                <h4>Idade: </h4>
+                <p><%= @animal.age %></p>
+            </div>
+            <div>
+                <h4>Porte: </h4>
+                <p><%= @animal.size %></p>
+            </div>
+        </div>
+    </div>   
 </div>
+
 <%= render :partial => 'layouts/footer' %>
