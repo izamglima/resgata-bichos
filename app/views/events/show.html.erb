@@ -2,7 +2,7 @@
 <main>
     <section class="show-animal">
         <div class="container">
-            <h1><%= @animal.name %></h1>            
+            <h1><%= @animal.name %> - <%= @event.status %></h1>            
             <div class="share-buttons">
                 <a class="twitter-share-button"
                 href="https://twitter.com/intent/tweet?text=Animal%20<%= @event.status %>.%20Local:%20<%= @event.address %> "
@@ -15,7 +15,9 @@
                 <div class="row">
                     <%= render 'show_animal', animal: @animal %>
                 </div>
-                <div class="col-md-4 col-sm-12 col-xs-12 box-img">
+                <div class="col-md-5 col-sm-12 col-xs-12 box-img">
+                    <h3>Localização</h3>
+                    <div id="mapholder"></div>
                     <h3>Imagem</h3>
                     <ul>
                         <% @animal.images.each do |image| %>
@@ -23,12 +25,11 @@
                         <% end %>
                     </ul>
                 </div>
-                <div class="col-md-5 col-sm-12 col-xs-12">
-                    <h3>Localização</h3>
-                    <div id="mapholder"></div>
-                </div>
-                <div class="col-md-5 pull-right">
+                
+                <div class="col-md-4 col-sm-12 col-xs-12">
                     <h3>Comentários</h3>
+
+                    <%= render :partial => 'comments' %>
 
                     <% if current_user.blank? %>
                         <p>Para comentar você precisa estar logado!</p>
@@ -37,7 +38,6 @@
                         <%= render :partial => 'form_comment' %>
                     <% end %>
                     
-                    <%= render :partial => 'comments' %>
                 </div>
             </div>
             <div class="separator"></div>
@@ -46,7 +46,7 @@
                     <%= link_to 'Editar', edit_animal_path(@animal) %> |
                 <% end %>    
             <% end %>
-            <%= link_to 'Voltar', animals_path %>
+            
         </div>  
     </section>
 </main>

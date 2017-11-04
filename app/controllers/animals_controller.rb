@@ -7,6 +7,7 @@ class AnimalsController < ApplicationController
     # GET /animals.json
     def index
         @animals = current_user.animals.all
+        
     end
 
     # GET /animals/1
