@@ -5,7 +5,7 @@ a, p, .progress, label, input, select, button {
 	font-family: 'Cantarell', sans-serif;
 }
 main {
-	margin-top: 51px;
+	margin-top: 52px;
 }
 a:hover {
 	color: #666;
@@ -16,7 +16,8 @@ ul {
 }
 footer {
 	border-top: 1px dotted #777;
-	margin-top: 50px;
+	bottom: 0;
+	width: 100%;
 }
 h1 {
 	font-size: 28px;
@@ -145,7 +146,7 @@ div.tooltip.top {
 .entrar,
 .cadastro,
 .esqueci-senha {
-	height: 90vh;
+	height: 75vh;
 	background: url(site/black-thread-light.png);
 	background-repeat: repeat;
 	text-align: center; 	
@@ -166,6 +167,7 @@ div.tooltip.top {
     padding: 30px 35px;
     border: 1px dotted #777;
     margin-top: 35px;
+    margin-bottom: 50px;
 }
 .progress-bar {
 	background-color: #6AB2A6;
