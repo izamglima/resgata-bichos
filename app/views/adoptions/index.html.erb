@@ -12,7 +12,7 @@
         <tbody>
           <% @adoptions.each do |adoption| %>
             <tr>
-              <td><p><%= adoption.comment %>"></p></td>
+              <td><p><%= adoption.comment %>></p></td>
               <td><%= link_to 'Show', animal_adoption_path(params[:animal_id], adoption) %></td>
               <td><%= link_to 'Edit', edit_animal_adoption_path(params[:animal_id], adoption) %></td>
               <td><%= link_to 'Destroy', animal_adoption_path(params[:animal_id], adoption), method: :delete, data: { confirm: 'Are you sure?' } %></td>

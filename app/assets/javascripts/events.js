@@ -62,11 +62,9 @@ $(document).ready(function() {
 		if (window.location.href.indexOf("cadastro") != -1) {
 			$('.final').removeClass('hidden');
 		}
-        
-        if ($('#new_adoption').length) {
-            $('#adoption_date_adoption').mask('00/00/0000');
-        }
-        
 	}
+    if ($('#new_adoption').length) {
+        $('#adoption_date_adoption').mask('00/00/0000');
+    }
     $('[data-toggle="popover"]').popover();
 });
