@@ -43,13 +43,13 @@
 	  </div>
 
 	  <div class="field" data-toggle="tooltip" id="dogs-list">
-			<%= f.label :race_dog, "Raça" %>
-			<%= f.select(:race_dog, options_for_select(@dog_races) , {}, { class: 'form-control', :id => "dogs-list" }) %>
+			<%= f.label :race_dog_id, "Raça" %>
+			<%= f.select(:race_dog_id, options_for_select(@dog_races) , {}, { class: 'form-control', :id => "dogs-lists" }) %>
 	  </div>
 
 	  <div class="field hidden" data-toggle="tooltip" id="cats-list">
-			<%= f.label :race_dog, "Raça" %>
-			<%= f.select(:race_dog, options_for_select(@cat_races) , {}, { class: 'form-control', :id => "cats-list" }) %>
+			<%= f.label :race_cat_id, "Raça" %>
+			<%= f.select(:race_cat_id, options_for_select(@cat_races) , {}, { class: 'form-control', :id => "cats-lists" }) %>
 	  </div>
 
 	  <div class="field" data-toggle="tooltip">

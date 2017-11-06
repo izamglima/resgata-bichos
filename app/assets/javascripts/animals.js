@@ -66,6 +66,12 @@ $('#new_animal').submit(function(){
 			$(inputCor).parent().tooltip('hide');
 		})
 	}
+	if ($('#dogs-list').hasClass('hidden')){
+		$("#dogs-lists").val("");
+	}
+	if ($('#cats-list').hasClass('hidden')){
+		$("#cats-lists").val(""); 
+	}
 	if ($(animalColor).val() == "") {
 		callTollTip(animalColor);		
 		

@@ -88,7 +88,7 @@ class AnimalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def animal_params
-        params.require(:animal).permit(:name, :color, :animal_type, :sex, :age, :size)
+        params.require(:animal).permit(:name, :race_dog_id, :race_cat_id, :color, :animal_type, :sex, :age, :size)
     end
 
     def require_permission
@@ -98,11 +98,11 @@ class AnimalsController < ApplicationController
     end
 
     def dog_races
-      RaceDog.all.map { |race| [ race.name, race.name ] }
+      RaceDog.all.map { |race| [ race.name, race.id ] }
     end
 
     def cat_races
-      RaceCat.all.map { |race| [ race.name, race.name ] }
+      RaceCat.all.map { |race| [ race.name, race.id ] }
     end
 
     def ages
