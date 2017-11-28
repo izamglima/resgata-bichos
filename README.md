@@ -1,24 +1,39 @@
-# README
+# Resgata Bichos
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ajuda colaborativa para resgatar animais perdidos, encontrados e ajudar na adoção.
 
-Things you may want to cover:
+## Dependencies
 
-* Ruby version
+ * [Ruby 2.3.1p112]
+ * [Bundler 1.14.2]
+ * [Yarn 1.2.1]
 
-* System dependencies
+## Getting Started
 
-* Configuration
+```sh
+$ bin/setup
+```
 
-* Database creation
+## Start
 
-* Database initialization
+```sh
+$ bin/start
+```
 
-* How to run the test suite
+## Debugging
 
-* Services (job queues, cache servers, search engines, etc.)
+Call `byebug` anywhere in the code to stop execution and get a debugger console
 
-* Deployment instructions
 
-* ...
+## Deploy
+
+This project uses [Heroku] to deploy
+
+```sh
+$ git push heroku master
+```
+
+[Ruby 2.4.2]: http://www.ruby-lang.org/en
+[Bundler 1.15.4]: http://bundler.io
+[Yarn 1.2.1]: https://yarnpkg.com/pt-BR
+[Heroku]: https://devcenter.heroku.com/articles/git
